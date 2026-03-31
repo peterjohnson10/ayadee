@@ -28,7 +28,7 @@
       line-height: 1.7;
     }
 
-    /* FIX: Ensures bold text is NEVER larger than the surrounding text */
+    /* Standardizes bold text to match surrounding font size exactly */
     strong, b {
       font-weight: 700;
       font-size: inherit; 
@@ -155,7 +155,6 @@
     }
     .card:hover { border-color: var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
     
-    /* Card headers are allowed to be large, but nested bold text will inherit the card's font size */
     .card-header { 
       font-family: 'Playfair Display', serif; 
       font-size: 1.25rem; 
@@ -171,6 +170,7 @@
       margin-top: 24px;
     }
 
+    /* FORM STYLES */
     form input, form select, form textarea {
       width: 100%;
       padding: 14px;
@@ -246,6 +246,7 @@
         <li>DAO & Blockchain</li>
         <li>FinTech Policy</li>
       </ul>
+      <a href="#contact" class="btn btn-outline" style="margin-top:20px;">Work With Us</a>
     </div>
     <div style="background:#F3F4F6; padding:30px; border-radius:8px; border: 1px solid #E5E7EB;">
       <h4 style="margin-bottom:15px; font-family:'Playfair Display', serif;">Academic & Institutional</h4>
@@ -300,27 +301,4 @@
 
 <section class="s s-white" id="fellowship">
   <div class="section-narrow">
-    <span class="s-subtitle">Knowledge Production</span>
-    <h2 class="s-title">Architects of the Future Fellowship</h2>
-    <p style="margin-bottom:30px;">
-      A selective program for emerging leaders working at the intersection of technology, governance, and global impact. The fellowship emphasizes <strong>knowledge production, applied research, and think tank–style contributions</strong>.
-    </p>
-
-    <div class="card">
-      <span class="card-header">Program Structure & Contribution</span>
-      <p>6-month, part-time fellowship (8–12 hours/week), remote-first. Fellows contribute directly to research, program development, and <strong>real-world advisory projects</strong> in AI governance and institutional transformation.</p>
-    </div>
-
-    <div class="card">
-      <span class="card-header">Applied Research Focus</span>
-      <ul>
-        <li><strong>AI Governance:</strong> Policy frameworks and risk mitigation for frontier models.</li>
-        <li><strong>Strategic Foresight:</strong> Building scenario models for digital ecosystems.</li>
-        <li><strong>Digital Economy:</strong> Researching fintech policy and digital identity systems.</li>
-        <li><strong>Institutional Design:</strong> Investigating how DAOs and cooperatives enable participatory oversight of emerging tech.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <span class="card-header">Who Should Apply</span>
-      <p>Candidates demonstrating strong analytical capability and a background in policy, entrepreneurship, or international development. We seek those committed to using technology for global impact and systemic change.</p>
+    <span class="s
