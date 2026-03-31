@@ -13,6 +13,7 @@
       --text: #374151;
       --light: #F8F9FB;
       --white: #FFFFFF;
+      --body-font-size: 1.1rem; /* Standardized body font size */
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -21,7 +22,7 @@
       font-family: 'Source Sans 3', sans-serif;
       background: var(--light);
       color: var(--dark);
-      font-size: 17px;
+      font-size: var(--body-font-size);
       line-height: 1.7;
     }
 
@@ -43,7 +44,7 @@
 
     .nav-logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; }
     .nav-links { display: flex; gap: 20px; align-items: center; }
-    .nav-links a { color: var(--text); font-size: 0.85rem; font-weight: 600; }
+    .nav-links a { color: var(--text); font-size: 0.9rem; font-weight: 600; }
 
     .btn {
       padding: 12px 24px;
@@ -58,7 +59,7 @@
     .btn-primary { background: var(--primary); color: var(--dark) !important; }
     .btn-outline { border: 2px solid var(--primary); color: var(--dark); }
 
-    /* SECTIONS */
+    /* HERO SECTION */
     .hero {
       min-height: 85vh;
       display: flex; flex-direction: column;
@@ -83,6 +84,7 @@
       margin-bottom: 32px;
     }
 
+    /* LOGO BAR */
     .logos {
       padding: 50px 24px;
       background: white;
@@ -100,6 +102,7 @@
     }
     .logo-item { font-weight: 700; color: #777; font-size: 0.85rem; letter-spacing: 1px; }
 
+    /* SECTION LAYOUTS */
     .s { padding: 100px 24px; scroll-margin-top: 70px; }
     .s-white { background: var(--white); }
     .section-narrow { max-width: 1000px; margin: 0 auto; }
@@ -113,6 +116,7 @@
 
     .grid-2 { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: start; }
 
+    /* CARD & LIST STYLING (FIXES ALIGNMENT) */
     .card {
       border: 1px solid #E5E7EB;
       border-radius: 6px;
@@ -124,6 +128,36 @@
     .card:hover { border-color: var(--primary); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
     .card strong { font-family: 'Playfair Display', serif; font-size: 1.3rem; display: block; margin-bottom: 12px; }
 
+    /* Fix bullet point alignment */
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      position: relative;
+      padding-left: 25px; /* Space for the bullet */
+      margin-bottom: 10px;
+      font-size: var(--body-font-size);
+    }
+
+    li::before {
+      content: "•";
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    /* Grid-based lists for skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    /* FORM STYLES */
     form input, form select, form textarea {
       width: 100%;
       padding: 14px;
@@ -139,6 +173,7 @@
     @media (max-width: 768px) {
       .grid-2 { grid-template-columns: 1fr; }
       .nav-links { display: none; }
+      .skills-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -191,21 +226,22 @@
       <p style="margin-bottom:20px;">
         A former <strong>U.S. Foreign Service Officer</strong>, I have managed global coalitions and development programs. Through the <strong>Ayadee Foundation</strong>, I lead a team designing strategies for emerging technologies for multilateral organizations like the <strong>FAO, UNDP, and the European Commission</strong>.
       </p>
-      <div style="margin-top:30px; display:grid; grid-template-columns: 1fr 1fr; gap:10px; font-weight:700; font-size:0.9rem;">
-        <span>• Strategic Foresight</span>
-        <span>• AI Governance</span>
-        <span>• DAO & Blockchain</span>
-        <span>• FinTech Policy</span>
-      </div>
+      
+      <ul class="skills-grid">
+        <li>Strategic Foresight</li>
+        <li>AI Governance</li>
+        <li>DAO & Blockchain</li>
+        <li>FinTech Policy</li>
+      </ul>
     </div>
     <div style="background:#F3F4F6; padding:30px; border-radius:8px; border: 1px solid #E5E7EB;">
       <h4 style="margin-bottom:15px; font-family:'Playfair Display', serif;">Academic & Institutional</h4>
-      <ul style="list-style:none; font-size:0.95rem; line-height:2.2;">
-        <li>• Johns Hopkins SAIS (MA)</li>
-        <li>• SUNY Geneseo (BA)</li>
-        <li>• YPO Social Impact Exec Committee</li>
-        <li>• Bretton Woods Committee</li>
-        <li>• Lifeboat Foundation Advisor</li>
+      <ul>
+        <li>Johns Hopkins SAIS (MA)</li>
+        <li>SUNY Geneseo (BA)</li>
+        <li>YPO Social Impact Exec Committee</li>
+        <li>Bretton Woods Committee</li>
+        <li>Lifeboat Foundation Advisor</li>
       </ul>
       <a href="https://linkedin.com/in/peterjohnson" target="_blank" style="display:block; margin-top:20px; font-weight:700; color:var(--primary);">Connect on LinkedIn →</a>
     </div>
@@ -264,11 +300,11 @@
 
     <div class="card">
       <strong>Applied Research Focus</strong>
-      <ul style="list-style:none; padding-left:0; margin-top:10px;">
-        <li>• <strong>AI Governance:</strong> Policy frameworks and risk mitigation for frontier models.</li>
-        <li>• <strong>Strategic Foresight:</strong> Building scenario models for digital ecosystems.</li>
-        <li>• <strong>Digital Economy:</strong> Researching fintech policy and digital identity systems.</li>
-        <li>• <strong>Institutional Design:</strong> Investigating how DAOs and cooperatives enable participatory oversight of emerging tech.</li>
+      <ul>
+        <li><strong>AI Governance:</strong> Policy frameworks and risk mitigation for frontier models.</li>
+        <li><strong>Strategic Foresight:</strong> Building scenario models for digital ecosystems.</li>
+        <li><strong>Digital Economy:</strong> Researching fintech policy and digital identity systems.</li>
+        <li><strong>Institutional Design:</strong> Investigating how DAOs and cooperatives enable participatory oversight of emerging tech.</li>
       </ul>
     </div>
 
@@ -290,11 +326,11 @@
     <p style="margin-bottom:30px;">Available for expert commentary and speaking engagements on high-stakes technological change.</p>
     
     <div class="grid-2" style="align-items: center;">
-      <ul style="list-style:none; line-height:2.4; font-weight:600;">
-        <li>• Why Governance is the Bottleneck of AI ROI</li>
-        <li>• Lessons from Mondragon for Blockchain DAOs</li>
-        <li>• Navigating Uncertainty in Multilateral Policy</li>
-        <li>• Democratic Participation in Algorithmic Systems</li>
+      <ul>
+        <li>Why Governance is the Bottleneck of AI ROI</li>
+        <li>Lessons from Mondragon for Blockchain DAOs</li>
+        <li>Navigating Uncertainty in Multilateral Policy</li>
+        <li>Democratic Participation in Algorithmic Systems</li>
       </ul>
       <div style="border-left: 3px solid var(--primary); padding:20px 30px; background:white; border-radius:4px;">
         <p><em>"Peter bridges the gap between frontier AI development and the practical realities of global governance."</em></p>
@@ -338,7 +374,6 @@
 </footer>
 
 <script>
-  // Smooth scroll for anchors
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
