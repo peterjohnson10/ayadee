@@ -13,16 +13,18 @@
       --text: #374151;
       --light: #F8F9FB;
       --white: #FFFFFF;
-      --body-font-size: 1.1rem; /* Standardized body font size */
+      --body-font: 1.05rem;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Source Sans 3', sans-serif;
       background: var(--light);
       color: var(--dark);
-      font-size: var(--body-font-size);
+      font-size: var(--body-font);
       line-height: 1.7;
     }
 
@@ -54,14 +56,31 @@
       cursor: pointer;
       display: inline-block;
       text-align: center;
+      font-size: 0.95rem;
     }
 
     .btn-primary { background: var(--primary); color: var(--dark) !important; }
     .btn-outline { border: 2px solid var(--primary); color: var(--dark); }
 
-    /* HERO SECTION */
+    /* SECTIONS & ANCHORS */
+    .s { 
+      padding: 100px 24px; 
+      /* Ensures external links to #id don't get covered by the nav bar */
+      scroll-margin-top: 70px; 
+    }
+    .s-white { background: var(--white); }
+    .section-narrow { max-width: 1000px; margin: 0 auto; }
+
+    .s-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      margin-bottom: 16px;
+    }
+    .s-subtitle { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 8px; display: block; }
+
+    /* HERO */
     .hero {
-      min-height: 85vh;
+      min-height: 80vh;
       display: flex; flex-direction: column;
       justify-content: center; align-items: center;
       text-align: center;
@@ -78,13 +97,13 @@
     }
 
     .hero-sub {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: var(--text);
       max-width: 780px;
       margin-bottom: 32px;
     }
 
-    /* LOGO BAR */
+    /* LOGOS */
     .logos {
       padding: 50px 24px;
       background: white;
@@ -100,64 +119,44 @@
       filter: grayscale(100%);
       margin-top: 20px;
     }
-    .logo-item { font-weight: 700; color: #777; font-size: 0.85rem; letter-spacing: 1px; }
+    .logo-item { font-weight: 700; color: #777; font-size: 0.8rem; letter-spacing: 1px; }
 
-    /* SECTION LAYOUTS */
-    .s { padding: 100px 24px; scroll-margin-top: 70px; }
-    .s-white { background: var(--white); }
-    .section-narrow { max-width: 1000px; margin: 0 auto; }
-
-    .s-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 2.6rem);
-      margin-bottom: 16px;
-    }
-    .s-subtitle { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; margin-bottom: 8px; display: block; }
-
+    /* CONTENT BLOCKS */
     .grid-2 { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: start; }
 
-    /* CARD & LIST STYLING (FIXES ALIGNMENT) */
-    .card {
-      border: 1px solid #E5E7EB;
-      border-radius: 6px;
-      padding: 32px;
-      background: var(--white);
-      margin-bottom: 24px;
-      transition: 0.3s;
-    }
-    .card:hover { border-color: var(--primary); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-    .card strong { font-family: 'Playfair Display', serif; font-size: 1.3rem; display: block; margin-bottom: 12px; }
-
-    /* Fix bullet point alignment */
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
+    ul { list-style: none; padding: 0; margin: 0; }
     li {
       position: relative;
-      padding-left: 25px; /* Space for the bullet */
-      margin-bottom: 10px;
-      font-size: var(--body-font-size);
+      padding-left: 22px;
+      margin-bottom: 12px;
+      font-size: var(--body-font);
     }
-
     li::before {
       content: "•";
       color: var(--primary);
       position: absolute;
       left: 0;
-      font-weight: bold;
+      font-weight: 800;
     }
 
-    /* Grid-based lists for skills */
-    .skills-grid {
+    .card {
+      border: 1px solid #E5E7EB;
+      border-radius: 6px;
+      padding: 28px;
+      background: var(--white);
+      margin-bottom: 20px;
+      transition: 0.3s;
+    }
+    .card:hover { border-color: var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+    .card strong { font-family: 'Playfair Display', serif; font-size: 1.25rem; display: block; margin-bottom: 10px; }
+
+    .skills-list {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
-      margin-top: 30px;
+      margin-top: 24px;
     }
 
-    /* FORM STYLES */
     form input, form select, form textarea {
       width: 100%;
       padding: 14px;
@@ -168,12 +167,12 @@
       margin-bottom: 16px;
     }
 
-    .footer { text-align: center; padding: 60px; color: #6B7280; border-top: 1px solid #EEE; background: var(--white); }
+    .footer { text-align: center; padding: 60px; color: #6B7280; border-top: 1px solid #EEE; background: var(--white); font-size: 0.9rem; }
 
     @media (max-width: 768px) {
       .grid-2 { grid-template-columns: 1fr; }
       .nav-links { display: none; }
-      .skills-grid { grid-template-columns: 1fr; }
+      .skills-list { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -203,7 +202,7 @@
 </section>
 
 <div class="logos">
-  <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:#999;">Institutional Experience</p>
+  <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:#999; margin-bottom:20px;">Institutional Experience</p>
   <div class="logos-grid">
     <div class="logo-item">EUROPEAN COMMISSION</div>
     <div class="logo-item">SCALE AI</div>
@@ -220,14 +219,14 @@
     <div>
       <span class="s-subtitle">The Perspective</span>
       <h2 class="s-title">Bridging Research & Global Strategy</h2>
-      <p style="margin-bottom:20px;">
+      <p style="margin-bottom:18px;">
         As a <strong>Finance Fellow with Scale AI’s Human Frontier Collective</strong>, I work with ML research teams on how frontier models understand financial systems. This practical work informs my PhD research on <strong>Decentralized Autonomous Organizations (DAOs)</strong> and cooperative governance at the University of the Basque Country.
       </p>
-      <p style="margin-bottom:20px;">
+      <p style="margin-bottom:18px;">
         A former <strong>U.S. Foreign Service Officer</strong>, I have managed global coalitions and development programs. Through the <strong>Ayadee Foundation</strong>, I lead a team designing strategies for emerging technologies for multilateral organizations like the <strong>FAO, UNDP, and the European Commission</strong>.
       </p>
       
-      <ul class="skills-grid">
+      <ul class="skills-list">
         <li>Strategic Foresight</li>
         <li>AI Governance</li>
         <li>DAO & Blockchain</li>
@@ -243,7 +242,7 @@
         <li>Bretton Woods Committee</li>
         <li>Lifeboat Foundation Advisor</li>
       </ul>
-      <a href="https://linkedin.com/in/peterjohnson" target="_blank" style="display:block; margin-top:20px; font-weight:700; color:var(--primary);">Connect on LinkedIn →</a>
+      <a href="https://linkedin.com/in/peterjohnson" target="_blank" style="display:block; margin-top:20px; font-weight:700; color:var(--primary); font-size: 0.95rem;">Connect on LinkedIn →</a>
     </div>
   </div>
 </section>
@@ -252,31 +251,31 @@
   <div class="section-narrow">
     <span class="s-subtitle">Executive Education</span>
     <h2 class="s-title">Institutional Capacity & Leadership</h2>
-    <p style="margin-bottom:40px;">I have taught 1,000+ students and executives globally at <strong>Humboldt University zu Berlin</strong> and for organizations like the <strong>BMW Foundation</strong> and <strong>Global Diplomacy Lab</strong>.</p>
+    <p style="margin-bottom:35px;">I have taught 1,000+ students and executives globally at <strong>Humboldt University zu Berlin</strong> and for organizations like the <strong>BMW Foundation</strong> and <strong>Global Diplomacy Lab</strong>.</p>
 
     <div class="card">
       <strong>Strategic Foresight for the Digital Age</strong>
-      Equipping leaders with horizon scanning, weak signal detection, and scenario development tools to build resilient strategy.
+      <p>Equipping leaders with horizon scanning, weak signal detection, and scenario development tools to build resilient strategy.</p>
     </div>
 
     <div class="card">
       <strong>AI Governance for Global Institutions</strong>
-      A practitioner-built framework for risk classification, governance architecture, and implementation roadmaps.
+      <p>A practitioner-built framework for risk classification, governance architecture, and implementation roadmaps.</p>
     </div>
 
     <div class="card">
       <strong>DAOs & Cooperative Governance</strong>
-      How decentralized coordination and 180 years of cooperative history inform the next generation of organizational design.
+      <p>How decentralized coordination and 180 years of cooperative history inform the next generation of organizational design.</p>
     </div>
 
     <div class="card">
       <strong>Entrepreneurial Culture: Play & Creativity</strong>
-      Cultivating human creativity and reflective thinking to generate original ideas in an AI-saturated environment.
+      <p>Cultivating human creativity and reflective thinking to generate original ideas in an AI-saturated environment.</p>
     </div>
 
     <div class="card">
       <strong>Social Entrepreneurship & Innovation</strong>
-      Designing ventures for social impact, combining business model innovation with sustainable development goals to drive systemic change.
+      <p>Designing ventures for social impact, combining business model innovation with sustainable development goals to drive systemic change.</p>
     </div>
 
     <div style="text-align:center; margin-top:30px;">
@@ -295,7 +294,7 @@
 
     <div class="card">
       <strong>Program Structure & Contribution</strong>
-      <p>6-month, part-time fellowship (8–12 hours/week), remote-first. Fellows contribute directly to research, program development, and <strong>real-world advisory projects</strong> in AI governance and institutional transformation.</p>
+      <p>6-month, part-time fellowship (8–12 hours/week), remote-first. Fellows contribute directly to research, program development, and real-world advisory projects in AI governance and institutional transformation.</p>
     </div>
 
     <div class="card">
@@ -370,10 +369,11 @@
 
 <footer class="footer">
   <p>© 2026 Peter Johnson | The Ayadee Foundation</p>
-  <p style="font-size:0.85rem; margin-top:8px;">U.S. • France • Germany | Delivering Insight Globally</p>
+  <p style="margin-top:8px;">U.S. • France • Germany | Delivering Insight Globally</p>
 </footer>
 
 <script>
+  // Smooth scroll logic for in-page anchors
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
