@@ -301,4 +301,122 @@
 
 <section class="s s-white" id="fellowship">
   <div class="section-narrow">
-    <span class="s
+    <span class="s-subtitle">Knowledge Production</span>
+    <h2 class="s-title">Architects of the Future Fellowship</h2>
+    <p style="margin-bottom:30px;">
+      A selective program for emerging leaders working at the intersection of technology, governance, and global impact. The fellowship emphasizes <strong>knowledge production, applied research, and think tank–style contributions</strong>.
+    </p>
+
+    <div class="card">
+      <span class="card-header">Program Structure & Contribution</span>
+      <p>6-month, part-time fellowship (8–12 hours/week), remote-first. Fellows contribute directly to research, program development, and <strong>real-world advisory projects</strong> in AI governance and institutional transformation.</p>
+    </div>
+
+    <div class="card">
+      <span class="card-header">Applied Research Focus</span>
+      <ul>
+        <li><strong>AI Governance:</strong> Policy frameworks and risk mitigation for frontier models.</li>
+        <li><strong>Strategic Foresight:</strong> Building scenario models for digital ecosystems.</li>
+        <li><strong>Digital Economy:</strong> Researching fintech policy and digital identity systems.</li>
+        <li><strong>Institutional Design:</strong> Investigating how DAOs and cooperatives enable participatory oversight of emerging tech.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="card-header">Who Should Apply</span>
+      <p>Candidates demonstrating strong analytical capability and a background in policy, entrepreneurship, or international development. We seek those committed to using technology for global impact and systemic change.</p>
+    </div>
+
+    <div style="text-align:center; margin-top:30px;">
+      <a href="https://docs.google.com/forms/d/1yZqbRmObBTzX5wBc8BQKO8omUsdWykN5yPQSPbZjj0g/edit" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Apply for the Fellowship</a>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="speaking">
+  <div class="section-narrow">
+    <span class="s-subtitle">Media & Speaking</span>
+    <h2 class="s-title">Keynotes, Podcasts, & Commentary</h2>
+    <p style="margin-bottom:30px;">Available for expert commentary and speaking engagements on high-stakes technological change.</p>
+    
+    <div class="grid-2" style="align-items: center;">
+      <ul>
+        <li>Why Governance is the Bottleneck of AI ROI</li>
+        <li>Lessons from Mondragon for Blockchain DAOs</li>
+        <li>Navigating Uncertainty in Multilateral Policy</li>
+        <li>Democratic Participation in Algorithmic Systems</li>
+      </ul>
+      <div style="border-left: 3px solid var(--primary); padding:20px 30px; background:white; border-radius:4px;">
+        <p><em>"Peter bridges the gap between frontier AI development and the practical realities of global governance."</em></p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a href="#contact" class="btn btn-primary">Invite as Guest / Speaker</a>
+    </div>
+  </div>
+</section>
+
+<section class="s s-white" id="contact">
+  <div class="section-narrow">
+    <div style="text-align:center; margin-bottom:50px;">
+      <h2 class="s-title">Work With Me</h2>
+      <p>Available for advisory mandates, research collaboration, and speaking engagements.</p>
+    </div>
+
+    <form action="https://formspree.io/f/meerbvzp" method="POST" style="max-width:650px; margin:0 auto; display:flex; flex-direction:column;">
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+      </div>
+      <input type="text" name="subject" placeholder="Subject (Advisory, Speaking, Course Inquiry)" required />
+      <select name="inquiry_type" required>
+        <option value="">Reason for Inquiry</option>
+        <option value="Advisory">Strategic Advisory / Consulting</option>
+        <option value="Speaking">Speaking / Media Appearance</option>
+        <option value="Education">Executive Education / Fellowship</option>
+        <option value="Research">Research Collaboration</option>
+      </select>
+      <textarea name="message" placeholder="How can I help you or your organization?" required style="min-height:150px;"></textarea>
+      <button type="submit" class="btn btn-primary" style="align-self:center; min-width:200px;">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2026 Peter Johnson | The Ayadee Foundation</p>
+  <p style="margin-top:8px;">U.S. • France • Germany | Delivering Insight Globally</p>
+</footer>
+
+<script>
+  // Handle smooth scroll for in-page anchors
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetElement = document.querySelector(this.getAttribute('href'));
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 70,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Handle deep linking and scroll on load (Deep Link Fix)
+  window.addEventListener('load', function() {
+    if (window.location.hash) {
+      const targetElement = document.querySelector(window.location.hash);
+      if (targetElement) {
+        setTimeout(function() {
+          window.scrollTo({
+            top: targetElement.offsetTop - 70,
+            behavior: 'smooth'
+          });
+        }, 150);
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
