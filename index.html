@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Source Sans 3', sans-serif;
@@ -27,6 +28,7 @@
       padding: 0 40px;
       background: #FFFFFF;
       border-bottom: 1px solid #E5E7EB;
+      z-index: 1000;
     }
 
     .nav-logo { font-family: 'Playfair Display', serif; font-weight: 700; }
@@ -60,6 +62,7 @@
     }
 
     .btn {
+      display: inline-block;
       padding: 14px 30px;
       font-weight: 700;
       border-radius: 4px;
@@ -100,6 +103,16 @@
     .section-narrow { max-width: 900px; margin: 0 auto; }
 
     .footer { text-align: center; padding: 40px; color: #6B7280; }
+
+    @media (max-width: 900px) {
+      .nav {
+        padding: 12px 20px;
+        height: auto;
+        align-items: flex-start;
+        gap: 12px;
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
@@ -116,7 +129,6 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <h1>High-Stakes Advisory & Education for an Uncertain World</h1>
   <p class="hero-sub">
@@ -128,7 +140,6 @@
   <a href="#contact" class="btn btn-primary">Request Advisory & Program Discussion</a>
 </section>
 
-<!-- PROBLEM -->
 <section class="s" id="about">
   <div class="section-narrow">
     <h2 class="s-title">The Decisions That Matter Are Not Routine</h2>
@@ -144,7 +155,6 @@
   </div>
 </section>
 
-<!-- OFFER -->
 <section class="s" id="programs">
   <div class="section-narrow">
     <h2 class="s-title">Executive Programs & Advisory</h2>
@@ -183,19 +193,16 @@
       <strong>Social Entrepreneurship: Building Ventures That Matter</strong>
       Programs focused on designing and scaling mission-driven ventures, including impact models, funding strategies, and measurable social outcomes. Used to support founders and organizations building financially sustainable, impact-driven ventures.
     </div>
-
   </div>
-  <!-- INDIVIDUAL SIGNUP CTA -->
+
   <div class="section-narrow" style="text-align:center; margin-top:40px;">
     <div class="prose" style="margin-bottom:20px;">
       Individual participants can enroll in upcoming courses and certificate programs by sending an inquiry through the contact form below. Please note the course name and whether you are applying as an individual or on behalf of an institution.
     </div>
     <a href="#contact" class="btn btn-primary">Inquire About Enrollment</a>
   </div>
-
 </section>
 
-<!-- FELLOWSHIP -->
 <section class="s" id="fellowship">
   <div class="section-narrow">
     <h2 class="s-title">Architects of the Future Fellowship</h2>
@@ -227,7 +234,6 @@
   </div>
 </section>
 
-<!-- HOW -->
 <section class="s" id="how">
   <div class="section-narrow">
     <h2 class="s-title">How We Work</h2>
@@ -249,7 +255,6 @@
   </div>
 </section>
 
-<!-- CREDIBILITY -->
 <section class="s" id="experience">
   <div class="section-narrow">
     <h2 class="s-title">Experience Across Systems</h2>
@@ -265,7 +270,6 @@
   </div>
 </section>
 
-<!-- CTA -->
 <section class="s">
   <div class="section-narrow" style="text-align:center;">
     <h2 class="s-title">Start the Conversation</h2>
@@ -277,7 +281,6 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="s" id="contact" style="background:#FFFFFF; border-top:1px solid #E5E7EB;">
   <div class="section-narrow">
     <h2 class="s-title">Work With Us</h2>
