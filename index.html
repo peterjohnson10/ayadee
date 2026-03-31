@@ -55,9 +55,8 @@
       text-align: center;
     }
 
-    .btn-primary { background: var(--primary); color: var(--dark); }
+    .btn-primary { background: var(--primary); color: var(--dark) !important; }
     .btn-outline { border: 2px solid var(--primary); color: var(--dark); }
-    .btn-sm { padding: 8px 16px; font-size: 0.85rem; }
 
     /* HERO SECTION */
     .hero {
@@ -127,14 +126,15 @@
     .card:hover { border-color: var(--primary); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
     .card strong { font-family: 'Playfair Display', serif; font-size: 1.3rem; display: block; margin-bottom: 12px; }
 
-    /* FORMS */
-    input, select, textarea {
+    /* FORM STYLES */
+    form input, form select, form textarea {
       width: 100%;
       padding: 14px;
       border: 1px solid #DDD;
       border-radius: 4px;
       font-family: inherit;
       font-size: 1rem;
+      margin-bottom: 16px;
     }
 
     .footer { text-align: center; padding: 60px; color: #6B7280; border-top: 1px solid #EEE; background: var(--white); }
@@ -160,9 +160,9 @@
 
 <section class="hero">
   <span class="s-subtitle">Strategic Foresight • AI Governance • DAO Research</span>
-  <h1>High-Stakes Advisory for systemic transformation</h1>
+  <h1>Advisory for the Frontier of Institutional Change</h1>
   <p class="hero-sub">
-    Bridging frontier ML research and global policy to help leaders navigate the intersection of technology, governance, and institutional design.
+    Bridging machine learning research, cooperative governance models, and global policy to help leaders navigate systemic transformation.
   </p>
   <div style="display:flex; gap:16px;">
     <a href="#contact" class="btn btn-primary">Request Advisory</a>
@@ -171,7 +171,7 @@
 </section>
 
 <div class="logos">
-  <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:#999;">Experience with Global Institutions</p>
+  <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:#999;">Institutional Experience</p>
   <div class="logos-grid">
     <div class="logo-item">EUROPEAN COMMISSION</div>
     <div class="logo-item">SCALE AI</div>
@@ -187,12 +187,12 @@
   <div class="section-narrow grid-2">
     <div>
       <span class="s-subtitle">The Perspective</span>
-      <h2 class="s-title">Where Organizational Research Meets Frontier AI</h2>
+      <h2 class="s-title">Bridging Research & Global Strategy</h2>
       <p style="margin-bottom:20px;">
-        As a <strong>Finance Fellow with Scale AI’s Human Frontier Collective</strong>, I work with ML research teams shaping how frontier AI models understand financial systems. This practical work complements my PhD research at the <strong>University of the Basque Country</strong>, where I explore how decentralized autonomous organizations (DAOs) and 180 years of cooperative history inform innovation.
+        As a <strong>Finance Fellow with Scale AI’s Human Frontier Collective</strong>, I work with ML research teams on how frontier models understand financial systems. This practical work informs my PhD research on <strong>Decentralized Autonomous Organizations (DAOs)</strong> and cooperative governance.
       </p>
       <p style="margin-bottom:20px;">
-        A former <strong>U.S. Foreign Service Officer</strong>, I have spent my career coordinating global coalitions and managing development programs. Through the <strong>Ayadee Foundation</strong> and Blue Shift Labs, I design strategies for emerging technologies for multilateral organizations like the <strong>FAO, UNDP, and the European Commission</strong>.
+        A former <strong>U.S. Foreign Service Officer</strong>, I have managed global coalitions and development programs. Through the <strong>Ayadee Foundation</strong>, I lead a team designing strategies for emerging technologies for multilateral organizations like the <strong>FAO, UNDP, and the European Commission</strong>.
       </p>
       <div style="margin-top:30px; display:grid; grid-template-columns: 1fr 1fr; gap:10px; font-weight:700; font-size:0.9rem;">
         <span>• Strategic Foresight</span>
@@ -219,21 +219,26 @@
   <div class="section-narrow">
     <span class="s-subtitle">Executive Education</span>
     <h2 class="s-title">Institutional Capacity & Leadership</h2>
-    <p style="margin-bottom:40px;">I have taught 1,000+ students and executives globally at institutions including <strong>Humboldt University zu Berlin</strong> and for organizations like the <strong>BMW Foundation</strong> and <strong>Global Diplomacy Lab</strong>.</p>
+    <p style="margin-bottom:40px;">I have taught 1,000+ students and executives globally at <strong>Humboldt University zu Berlin</strong> and for organizations like the <strong>BMW Foundation</strong> and <strong>Global Diplomacy Lab</strong>.</p>
+
+    <div class="card">
+      <strong>Social Entrepreneurship & Innovation</strong>
+      Designing ventures for social impact, combining business model innovation with sustainable development goals to drive systemic change.
+    </div>
 
     <div class="card">
       <strong>Strategic Foresight for the Digital Age</strong>
-      Equipping leaders with horizon scanning, weak signal detection, and scenario development tools to build resilient strategy in the face of AI disruption.
+      Equipping leaders with horizon scanning, weak signal detection, and scenario development tools to build resilient strategy.
     </div>
 
     <div class="card">
       <strong>AI Governance for Global Institutions</strong>
-      A practitioner-built framework for risk classification, governance architecture, and implementation roadmaps for responsible innovation.
+      A practitioner-built framework for risk classification, governance architecture, and implementation roadmaps.
     </div>
 
     <div class="card">
       <strong>DAOs & Cooperative Governance</strong>
-      Research-backed workshops on how decentralized coordination and cooperative models inform the next generation of organizational design.
+      How decentralized coordination and 180 years of cooperative history inform the next generation of organizational design.
     </div>
 
     <div class="card">
@@ -270,4 +275,75 @@
   </div>
 </section>
 
-<section class="s
+<section class="s" id="speaking">
+  <div class="section-narrow">
+    <span class="s-subtitle">Media & Speaking</span>
+    <h2 class="s-title">Keynotes, Podcasts, & Commentary</h2>
+    <p style="margin-bottom:30px;">Available for expert commentary and speaking engagements on high-stakes technological change.</p>
+    
+    <div class="grid-2" style="align-items: center;">
+      <ul style="list-style:none; line-height:2.4; font-weight:600;">
+        <li>• Why Governance is the Bottleneck of AI ROI</li>
+        <li>• Lessons from Mondragon for Blockchain DAOs</li>
+        <li>• Navigating Uncertainty in Multilateral Policy</li>
+        <li>• Democratic Participation in Algorithmic Systems</li>
+      </ul>
+      <div style="border-left: 3px solid var(--primary); padding:20px 30px; background:white; border-radius:4px;">
+        <p><em>"Peter bridges the gap between frontier AI development and the practical realities of global governance."</em></p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a href="#contact" class="btn btn-primary">Invite as Guest / Speaker</a>
+    </div>
+  </div>
+</section>
+
+<section class="s s-white" id="contact">
+  <div class="section-narrow">
+    <div style="text-align:center; margin-bottom:50px;">
+      <h2 class="s-title">Work With Me</h2>
+      <p>Available for advisory mandates, research collaboration, and speaking engagements.</p>
+    </div>
+
+    <form action="https://formspree.io/f/meerbvzp" method="POST" style="max-width:650px; margin:0 auto; display:flex; flex-direction:column;">
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+      </div>
+      <input type="text" name="subject" placeholder="Subject (Advisory, Speaking, Course Inquiry)" required />
+      <select name="inquiry_type" required>
+        <option value="">Reason for Inquiry</option>
+        <option value="Advisory">Strategic Advisory / Consulting</option>
+        <option value="Speaking">Speaking / Media Appearance</option>
+        <option value="Education">Executive Education / Fellowship</option>
+        <option value="Research">Research Collaboration</option>
+      </select>
+      <textarea name="message" placeholder="How can I help you or your organization?" required style="min-height:150px;"></textarea>
+      <button type="submit" class="btn btn-primary" style="align-self:center; min-width:200px;">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2026 Peter Johnson | The Ayadee Foundation</p>
+  <p style="font-size:0.85rem; margin-top:8px;">U.S. • France • Germany | Delivering Insight Globally</p>
+</footer>
+
+<script>
+  // Smooth scroll for anchors
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 70,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
