@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +29,7 @@
       line-height: 1.7;
     }
 
-    /* Standardizes bold text to match surrounding font size exactly */
+    /* Fix: Bold text is never larger than surrounding text */
     strong, b {
       font-weight: 700;
       font-size: inherit; 
@@ -170,7 +171,6 @@
       margin-top: 24px;
     }
 
-    /* FORM STYLES */
     form input, form select, form textarea {
       width: 100%;
       padding: 14px;
@@ -359,7 +359,7 @@
 <section class="s s-white" id="contact">
   <div class="section-narrow">
     <div style="text-align:center; margin-bottom:50px;">
-      <h2 class="s-title">Work With Me</h2>
+      <h2 class="s-title">Start the Conversation</h2>
       <p>Available for advisory mandates, research collaboration, and speaking engagements.</p>
     </div>
 
@@ -402,7 +402,7 @@
     });
   });
 
-  // Handle deep linking and scroll on load (Deep Link Fix)
+  // Handle deep linking (e.g., ayadee.io/#fellowship)
   window.addEventListener('load', function() {
     if (window.location.hash) {
       const targetElement = document.querySelector(window.location.hash);
@@ -420,3 +420,4 @@
 
 </body>
 </html>
+```
