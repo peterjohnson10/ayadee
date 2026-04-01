@@ -1,13 +1,15 @@
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Peter Johnson | The Ayadee Foundation — Education and Advisory</title>
-  <meta name="description" content="High-stakes education and advisory at the intersection of frontier AI, DAO governance, and systemic change." />
+  <title>Peter Johnson | The Ayadee Foundation — Strategic Foresight & AI Governance</title>
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C4A97D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpolygon points='16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76'%3E%3C/polygon%3E%3C/svg%3E">
+
+  <meta name="description" content="High-stakes advisory and education at the intersection of frontier AI, DAO governance, and systemic change." />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  
   <style>
     :root {
       --primary: #C4A97D;
@@ -15,7 +17,7 @@
       --text: #374151;
       --light: #F8F9FB;
       --white: #FFFFFF;
-      --body-font-size: 1.05rem;
+      --body-size: 1.05rem;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,11 +28,11 @@
       font-family: 'Source Sans 3', sans-serif;
       background: var(--light);
       color: var(--dark);
-      font-size: var(--body-font-size);
+      font-size: var(--body-size);
       line-height: 1.7;
     }
 
-    /* Standardizes bold text size */
+    /* Fixed bold text size: Ensuring bolding does not increase font size */
     strong, b {
       font-weight: 700;
       font-size: inherit; 
@@ -53,7 +55,15 @@
       z-index: 1000;
     }
 
-    .nav-logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; }
+    .nav-logo { 
+        font-family: 'Playfair Display', serif; 
+        font-weight: 700; 
+        font-size: 1.1rem; 
+        display: flex; 
+        align-items: center; 
+        color: var(--dark);
+    }
+
     .nav-links { display: flex; gap: 20px; align-items: center; }
     .nav-links a { color: var(--text); font-size: 0.9rem; font-weight: 600; }
 
@@ -71,13 +81,25 @@
     .btn-primary { background: var(--primary); color: var(--dark) !important; }
     .btn-outline { border: 2px solid var(--primary); color: var(--dark); }
 
+    /* SECTIONS */
+    .s { padding: 100px 24px; scroll-margin-top: 80px; }
+    .s-white { background: var(--white); }
+    .section-narrow { max-width: 1000px; margin: 0 auto; }
+
+    .s-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      margin-bottom: 16px;
+    }
+    .s-subtitle { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 8px; display: block; }
+
     /* HERO */
     .hero {
-      min-height: 70vh;
+      min-height: 80vh;
       display: flex; flex-direction: column;
       justify-content: center; align-items: center;
       text-align: center;
-      padding: 140px 24px 40px;
+      padding: 140px 24px 60px;
       background: var(--white);
     }
 
@@ -96,65 +118,25 @@
       margin-bottom: 32px;
     }
 
-    /* CREDIBILITY STRIP */
-    .cred-strip {
-      padding: 30px 24px;
-      background: #fdfcf8;
-      border-top: 1px solid #EEE;
-      border-bottom: 1px solid #EEE;
-      text-align: center;
-    }
-    .cred-text {
-      font-size: 0.9rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--primary);
-      margin-bottom: 15px;
-      display: block;
-    }
-    .cred-logos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      opacity: 0.7;
-      filter: grayscale(100%);
-    }
-    .cred-logo-item { font-weight: 600; color: #555; font-size: 0.8rem; }
-
-    /* INSTITUTIONAL LOGOS */
+    /* LOGO BAR */
     .logos {
       padding: 50px 24px;
       background: white;
       text-align: center;
+      border-top: 1px solid #EEE;
     }
     .logos-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 35px;
-      opacity: 0.6;
+      opacity: 0.65;
       filter: grayscale(100%);
       margin-top: 20px;
     }
     .logo-item { font-weight: 700; color: #777; font-size: 0.8rem; letter-spacing: 1px; }
 
-    /* SECTION ANCHORS */
-    .s { 
-      padding: 100px 24px; 
-      scroll-margin-top: 90px; 
-    }
-    .s-white { background: var(--white); }
-    .section-narrow { max-width: 1000px; margin: 0 auto; }
-
-    .s-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      margin-bottom: 16px;
-    }
-    .s-subtitle { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 8px; display: block; }
-
+    /* LAYOUT HELPERS */
     .grid-2 { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: start; }
 
     ul { list-style: none; padding: 0; margin: 0; }
@@ -162,7 +144,7 @@
       position: relative;
       padding-left: 22px;
       margin-bottom: 12px;
-      font-size: var(--body-font-size);
+      font-size: var(--body-size);
     }
     li::before {
       content: "•";
@@ -197,7 +179,6 @@
       margin-top: 24px;
     }
 
-    /* FORM */
     form input, form select, form textarea {
       width: 100%;
       padding: 14px;
@@ -220,7 +201,13 @@
 <body>
 
 <nav class="nav">
-  <div class="nav-logo">Peter Johnson | Ayadee Foundation</div>
+  <div class="nav-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C4A97D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 12px;">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+    </svg>
+    Ayadee Foundation
+  </div>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#programs">Programs</a>
@@ -232,7 +219,7 @@
 
 <section class="hero">
   <span class="s-subtitle">Strategic Foresight • AI Governance • DAO Research</span>
-  <h1>Education and Advisory for the Frontier of Institutional Change</h1>
+  <h1>Advisory for the Frontier of Institutional Change</h1>
   <p class="hero-sub">
     Bridging machine learning research, cooperative governance models, and global policy to help leaders navigate systemic transformation.
   </p>
@@ -242,24 +229,15 @@
   </div>
 </section>
 
-<div class="cred-strip">
-  <span class="cred-text">1,000+ Students & Executives Taught Globally</span>
-  <div class="cred-logos">
-    <div class="cred-logo-item">HUMBOLDT UNIVERSITY ZU BERLIN</div>
-    <div class="cred-logo-item">MEDITERRANEAN SCHOOL OF BUSINESS</div>
-    <div class="cred-logo-item">BMW FOUNDATION</div>
-    <div class="cred-logo-item">GLOBAL DIPLOMACY LAB</div>
-  </div>
-</div>
-
 <div class="logos">
-  <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:#999;">Institutional Experience</p>
+  <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:#999; margin-bottom:20px;">Institutional Experience</p>
   <div class="logos-grid">
     <div class="logo-item">EUROPEAN COMMISSION</div>
     <div class="logo-item">SCALE AI</div>
     <div class="logo-item">USAID</div>
     <div class="logo-item">AFRICAN DEVELOPMENT BANK</div>
     <div class="logo-item">UNDP</div>
+    <div class="logo-item">BMW FOUNDATION</div>
     <div class="logo-item">YPO</div>
   </div>
 </div>
@@ -275,6 +253,7 @@
       <p style="margin-bottom:18px;">
         A former <strong>U.S. Foreign Service Officer</strong>, I have managed global coalitions and development programs. Through the <strong>Ayadee Foundation</strong>, I lead a team designing strategies for emerging technologies for multilateral organizations like the <strong>FAO, UNDP, and the European Commission</strong>.
       </p>
+      
       <ul class="skills-list">
         <li>Strategic Foresight</li>
         <li>AI Governance</li>
@@ -301,9 +280,7 @@
   <div class="section-narrow">
     <span class="s-subtitle">Executive Education</span>
     <h2 class="s-title">Institutional Capacity & Leadership</h2>
-    <p style="margin-bottom:35px;">
-      I have taught 1,000+ students and executives globally at <strong>Humboldt University zu Berlin</strong>, the <strong>Mediterranean School of Business</strong>, and through <strong>Ayadee Foundation executive programs</strong>, as well as for organizations including the <strong>BMW Foundation</strong> and <strong>Global Diplomacy Lab</strong>.
-    </p>
+    <p style="margin-bottom:35px;">I have taught 1,000+ students and executives globally at <strong>Humboldt University zu Berlin</strong> and for organizations like the <strong>BMW Foundation</strong> and <strong>Global Diplomacy Lab</strong>.</p>
 
     <div class="card">
       <span class="card-header">Strategic Foresight for the Digital Age</span>
@@ -361,7 +338,7 @@
 
     <div class="card">
       <span class="card-header">Who Should Apply</span>
-      <p>Candidates demonstrating strong analytical capability and a background in policy, entrepreneurship, or international development. We seek those committed to using technology for global impact and systemic change.</p>
+      <p>Candidates demonstrating strong analytical capability and a background in policy, entrepreneurship, or international development.</p>
     </div>
 
     <div style="text-align:center; margin-top:30px;">
@@ -375,6 +352,7 @@
     <span class="s-subtitle">Media & Speaking</span>
     <h2 class="s-title">Keynotes, Podcasts, & Commentary</h2>
     <p style="margin-bottom:30px;">Available for expert commentary and speaking engagements on high-stakes technological change.</p>
+    
     <div class="grid-2" style="align-items: center;">
       <ul>
         <li>Why Governance is the Bottleneck of AI ROI</li>
@@ -424,34 +402,31 @@
 </footer>
 
 <script>
-  // Handle smooth scroll for clicking links inside the same page
+  // Handle smooth scroll for anchors
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      
-      const targetElement = document.querySelector(targetId);
+      e.preventDefault();
+      const targetElement = document.querySelector(this.getAttribute('href'));
       if (targetElement) {
-        e.preventDefault();
         window.scrollTo({
-          top: targetElement.offsetTop - 75,
+          top: targetElement.offsetTop - 70,
           behavior: 'smooth'
         });
       }
     });
   });
 
-  // Handle deep links from outside the site (e.g. ayadee.io/#fellowship)
+  // Deep linking and scroll logic
   window.addEventListener('load', function() {
     if (window.location.hash) {
       const targetElement = document.querySelector(window.location.hash);
       if (targetElement) {
         setTimeout(function() {
           window.scrollTo({
-            top: targetElement.offsetTop - 85,
+            top: targetElement.offsetTop - 70,
             behavior: 'smooth'
           });
-        }, 350);
+        }, 150);
       }
     }
   });
@@ -459,4 +434,3 @@
 
 </body>
 </html>
-```
