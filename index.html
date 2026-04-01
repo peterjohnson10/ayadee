@@ -28,6 +28,7 @@
       line-height: 1.7;
     }
 
+    /* Standardizes bold text size */
     strong, b {
       font-weight: 700;
       font-size: inherit; 
@@ -37,6 +38,7 @@
     a { color: var(--primary); text-decoration: none; transition: 0.3s; }
     a:hover { opacity: 0.8; }
 
+    /* NAVIGATION */
     .nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -67,6 +69,7 @@
     .btn-primary { background: var(--primary); color: var(--dark) !important; }
     .btn-outline { border: 2px solid var(--primary); color: var(--dark); }
 
+    /* HERO */
     .hero {
       min-height: 70vh;
       display: flex; flex-direction: column;
@@ -91,6 +94,7 @@
       margin-bottom: 32px;
     }
 
+    /* CREDIBILITY STRIP */
     .cred-strip {
       padding: 30px 24px;
       background: #fdfcf8;
@@ -117,6 +121,7 @@
     }
     .cred-logo-item { font-weight: 600; color: #555; font-size: 0.8rem; }
 
+    /* INSTITUTIONAL LOGOS */
     .logos {
       padding: 50px 24px;
       background: white;
@@ -133,9 +138,10 @@
     }
     .logo-item { font-weight: 700; color: #777; font-size: 0.8rem; letter-spacing: 1px; }
 
+    /* SECTION ANCHORS */
     .s { 
       padding: 100px 24px; 
-      scroll-margin-top: 85px; 
+      scroll-margin-top: 90px; 
     }
     .s-white { background: var(--white); }
     .section-narrow { max-width: 1000px; margin: 0 auto; }
@@ -189,6 +195,7 @@
       margin-top: 24px;
     }
 
+    /* FORM */
     form input, form select, form textarea {
       width: 100%;
       padding: 14px;
@@ -266,7 +273,6 @@
       <p style="margin-bottom:18px;">
         A former <strong>U.S. Foreign Service Officer</strong>, I have managed global coalitions and development programs. Through the <strong>Ayadee Foundation</strong>, I lead a team designing strategies for emerging technologies for multilateral organizations like the <strong>FAO, UNDP, and the European Commission</strong>.
       </p>
-      
       <ul class="skills-list">
         <li>Strategic Foresight</li>
         <li>AI Governance</li>
@@ -367,7 +373,6 @@
     <span class="s-subtitle">Media & Speaking</span>
     <h2 class="s-title">Keynotes, Podcasts, & Commentary</h2>
     <p style="margin-bottom:30px;">Available for expert commentary and speaking engagements on high-stakes technological change.</p>
-    
     <div class="grid-2" style="align-items: center;">
       <ul>
         <li>Why Governance is the Bottleneck of AI ROI</li>
@@ -417,13 +422,15 @@
 </footer>
 
 <script>
-  // Smooth scroll logic for in-page anchors
+  // Handle smooth scroll for clicking links inside the same page
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      e.preventDefault();
       const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
+        e.preventDefault();
         window.scrollTo({
           top: targetElement.offsetTop - 75,
           behavior: 'smooth'
@@ -432,22 +439,17 @@
     });
   });
 
-  // Deep Link Anchor Fix
+  // Handle deep links from outside the site (e.g. ayadee.io/#fellowship)
   window.addEventListener('load', function() {
     if (window.location.hash) {
-      const hash = window.location.hash;
-      const targetElement = document.querySelector(hash);
+      const targetElement = document.querySelector(window.location.hash);
       if (targetElement) {
         setTimeout(function() {
-          const offset = 85; 
-          const elementPosition = targetElement.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - offset;
-
           window.scrollTo({
-            top: offsetPosition,
+            top: targetElement.offsetTop - 85,
             behavior: 'smooth'
           });
-        }, 300);
+        }, 350);
       }
     }
   });
