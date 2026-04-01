@@ -28,7 +28,6 @@
       line-height: 1.7;
     }
 
-    /* Fix: Bold text is never larger than surrounding text */
     strong, b {
       font-weight: 700;
       font-size: inherit; 
@@ -38,7 +37,6 @@
     a { color: var(--primary); text-decoration: none; transition: 0.3s; }
     a:hover { opacity: 0.8; }
 
-    /* NAVIGATION */
     .nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -69,7 +67,6 @@
     .btn-primary { background: var(--primary); color: var(--dark) !important; }
     .btn-outline { border: 2px solid var(--primary); color: var(--dark); }
 
-    /* HERO */
     .hero {
       min-height: 70vh;
       display: flex; flex-direction: column;
@@ -94,7 +91,6 @@
       margin-bottom: 32px;
     }
 
-    /* CREDIBILITY STRIP */
     .cred-strip {
       padding: 30px 24px;
       background: #fdfcf8;
@@ -121,7 +117,6 @@
     }
     .cred-logo-item { font-weight: 600; color: #555; font-size: 0.8rem; }
 
-    /* INSTITUTIONAL LOGO BAR */
     .logos {
       padding: 50px 24px;
       background: white;
@@ -138,10 +133,8 @@
     }
     .logo-item { font-weight: 700; color: #777; font-size: 0.8rem; letter-spacing: 1px; }
 
-    /* SECTIONS */
     .s { 
       padding: 100px 24px; 
-      /* Ensures external links like ayadee.io/#fellowship land below the sticky nav */
       scroll-margin-top: 85px; 
     }
     .s-white { background: var(--white); }
@@ -424,7 +417,7 @@
 </footer>
 
 <script>
-  // Handle smooth scroll for in-page anchors
+  // Smooth scroll logic for in-page anchors
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
@@ -439,14 +432,12 @@
     });
   });
 
-  // ROBUST DEEP LINK FIX: 
-  // Forces the browser to correctly scroll to section IDs on initial page load
+  // Deep Link Anchor Fix
   window.addEventListener('load', function() {
     if (window.location.hash) {
       const hash = window.location.hash;
       const targetElement = document.querySelector(hash);
       if (targetElement) {
-        // Slight delay to allow CSS, fonts, and images to stabilize 
         setTimeout(function() {
           const offset = 85; 
           const elementPosition = targetElement.getBoundingClientRect().top;
