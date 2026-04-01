@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Peter Johnson | The Ayadee Foundation — Strategic Foresight & AI Governance</title>
-  <meta name="description" content="High-stakes advisory and education at the intersection of frontier AI, DAO governance, and systemic change." />
+  <title>Peter Johnson | The Ayadee Foundation — Education and Advisory</title>
+  <meta name="description" content="High-stakes education and advisory at the intersection of frontier AI, DAO governance, and systemic change." />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -28,7 +28,7 @@
       line-height: 1.7;
     }
 
-    /* Standardizes bold text to match surrounding font size exactly */
+    /* Fix: Bold text is never larger than surrounding text */
     strong, b {
       font-weight: 700;
       font-size: inherit; 
@@ -94,7 +94,7 @@
       margin-bottom: 32px;
     }
 
-    /* CREDIBILITY STRIP (NEW) */
+    /* CREDIBILITY STRIP */
     .cred-strip {
       padding: 30px 24px;
       background: #fdfcf8;
@@ -141,7 +141,8 @@
     /* SECTIONS */
     .s { 
       padding: 100px 24px; 
-      scroll-margin-top: 80px; 
+      /* Ensures external links like ayadee.io/#fellowship land below the sticky nav */
+      scroll-margin-top: 85px; 
     }
     .s-white { background: var(--white); }
     .section-narrow { max-width: 1000px; margin: 0 auto; }
@@ -229,7 +230,7 @@
 
 <section class="hero">
   <span class="s-subtitle">Strategic Foresight • AI Governance • DAO Research</span>
-  <h1>Advisory for the Frontier of Institutional Change</h1>
+  <h1>Education and Advisory for the Frontier of Institutional Change</h1>
   <p class="hero-sub">
     Bridging machine learning research, cooperative governance models, and global policy to help leaders navigate systemic transformation.
   </p>
@@ -427,27 +428,35 @@
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
-      const targetElement = document.querySelector(this.getAttribute('href'));
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
       if (targetElement) {
         window.scrollTo({
-          top: targetElement.offsetTop - 70,
+          top: targetElement.offsetTop - 75,
           behavior: 'smooth'
         });
       }
     });
   });
 
-  // Handle deep linking and scroll on load
+  // ROBUST DEEP LINK FIX: 
+  // Forces the browser to correctly scroll to section IDs on initial page load
   window.addEventListener('load', function() {
     if (window.location.hash) {
-      const targetElement = document.querySelector(window.location.hash);
+      const hash = window.location.hash;
+      const targetElement = document.querySelector(hash);
       if (targetElement) {
+        // Slight delay to allow CSS, fonts, and images to stabilize 
         setTimeout(function() {
+          const offset = 85; 
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+
           window.scrollTo({
-            top: targetElement.offsetTop - 70,
+            top: offsetPosition,
             behavior: 'smooth'
           });
-        }, 150);
+        }, 300);
       }
     }
   });
