@@ -21,7 +21,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; overflow-x: hidden; }
+    html { scroll-behavior: smooth; overflow-x: hidden; height: 100%; }
     body {
       font-family: 'Source Sans 3', sans-serif;
       background: var(--light);
@@ -29,9 +29,9 @@
       font-size: var(--body-size);
       line-height: 1.7;
       overflow-x: hidden;
+      min-height: 100%;
     }
 
-    /* Fixed bold text size to match surrounding font size exactly */
     strong, b { font-weight: 700; font-size: inherit; line-height: inherit; }
     a { color: var(--primary); text-decoration: none; transition: 0.3s; }
     a:hover { opacity: 0.8; }
@@ -78,4 +78,22 @@
         box-shadow: -10px 0 30px rgba(0,0,0,0.1);
       }
       .nav-links.active { right: 0; }
-      .nav-links a { font-size: 1.4
+      .nav-links a { font-size: 1.4rem; padding: 15px 0; }
+    }
+
+    .btn {
+      padding: 14px 28px;
+      font-weight: 700;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      font-size: 1rem;
+      border: none;
+    }
+    .btn-primary { background: var(--primary); color: var(--dark) !important; }
+    .btn-outline { border: 2px solid var(--primary); color: var(--dark); }
+
+    .s { padding: 100px 24px; scroll-margin-top: 75px; }
+    .s-white { background: var(--white); }
+    .section-narrow { max-width: 1000px; margin: 0 auto; }
