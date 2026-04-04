@@ -21,24 +21,17 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       font-family: 'Source Sans 3', sans-serif;
       background: var(--light);
       color: var(--dark);
       font-size: var(--body-size);
       line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    /* FIX: Standardizes bold text to match surrounding font size exactly */
-    strong, b {
-      font-weight: 700;
-      font-size: inherit; 
-      line-height: inherit;
-    }
-
+    strong, b { font-weight: 700; font-size: inherit; line-height: inherit; }
     a { color: var(--primary); text-decoration: none; transition: 0.3s; }
     a:hover { opacity: 0.8; }
 
@@ -49,166 +42,131 @@
       height: 70px;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 40px;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid #E5E7EB;
-      z-index: 1000;
+      z-index: 2000;
     }
 
     .nav-logo { 
-        font-family: 'Playfair Display', serif; 
-        font-weight: 700; 
-        font-size: 1.1rem; 
-        display: flex; 
-        align-items: center; 
-        color: var(--dark);
+      font-family: 'Playfair Display', serif; 
+      font-weight: 700; 
+      font-size: 1.05rem; 
+      display: flex; 
+      align-items: center; 
+      color: var(--dark);
     }
 
     .nav-links { display: flex; gap: 20px; align-items: center; }
     .nav-links a { color: var(--text); font-size: 0.9rem; font-weight: 600; }
 
+    /* MOBILE MENU ELEMENTS */
+    .menu-toggle { display: none; cursor: pointer; flex-direction: column; gap: 5px; z-index: 2001; }
+    .menu-toggle span { width: 25px; height: 2px; background: var(--dark); transition: 0.3s; }
+
+    @media (max-width: 850px) {
+      .nav { padding: 0 20px; }
+      .menu-toggle { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 85%; height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+      }
+      .nav-links.active { right: 0; }
+      .nav-links a { font-size: 1.4rem; padding: 15px 0; }
+    }
+
+    /* BUTTONS */
     .btn {
-      padding: 12px 24px;
+      padding: 14px 28px;
       font-weight: 700;
       border-radius: 4px;
-      border: none;
       cursor: pointer;
       display: inline-block;
       text-align: center;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      border: none;
     }
-
     .btn-primary { background: var(--primary); color: var(--dark) !important; }
     .btn-outline { border: 2px solid var(--primary); color: var(--dark); }
 
     /* SECTIONS */
-    .s { padding: 100px 24px; scroll-margin-top: 80px; }
+    .s { padding: 100px 24px; scroll-margin-top: 75px; }
     .s-white { background: var(--white); }
     .section-narrow { max-width: 1000px; margin: 0 auto; }
 
     .s-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      margin-bottom: 16px;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      margin-bottom: 20px;
+      line-height: 1.2;
     }
-    .s-subtitle { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 8px; display: block; }
+    .s-subtitle { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 10px; display: block; }
 
     /* HERO */
     .hero {
-      min-height: 80vh;
+      min-height: 85vh;
       display: flex; flex-direction: column;
       justify-content: center; align-items: center;
       text-align: center;
-      padding: 140px 24px 60px;
+      padding: 120px 20px 60px;
       background: var(--white);
     }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.1; margin-bottom: 20px; max-width: 950px; }
+    .hero-sub { font-size: 1.15rem; color: var(--text); max-width: 700px; margin-bottom: 35px; }
 
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      line-height: 1.1;
-      margin-bottom: 20px;
-      max-width: 950px;
-    }
+    /* LOGO BAR */
+    .logos { padding: 40px 20px; background: white; border-top: 1px solid #EEE; text-align: center; }
+    .logos-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; opacity: 0.6; filter: grayscale(100%); margin-top: 20px; }
+    .logo-item { font-weight: 700; font-size: 0.8rem; letter-spacing: 1px; }
 
-    .hero-sub {
-      font-size: 1.2rem;
-      color: var(--text);
-      max-width: 780px;
-      margin-bottom: 32px;
-    }
-
-    /* LOGOS bar */
-    .logos {
-      padding: 50px 24px;
-      background: white;
-      text-align: center;
-      border-top: 1px solid #EEE;
-    }
-    .logos-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 35px;
-      opacity: 0.65;
-      filter: grayscale(100%);
-      margin-top: 20px;
-    }
-    .logo-item { font-weight: 700; color: #777; font-size: 0.8rem; letter-spacing: 1px; }
-
-    /* CONTENT BLOCKS */
-    .grid-2 { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: start; }
-
-    ul { list-style: none; padding: 0; margin: 0; }
-    li {
-      position: relative;
-      padding-left: 22px;
-      margin-bottom: 12px;
-      font-size: var(--body-size);
-    }
-    li::before {
-      content: "•";
-      color: var(--primary);
-      position: absolute;
-      left: 0;
-      font-weight: 800;
-    }
-
-    .card {
-      border: 1px solid #E5E7EB;
-      border-radius: 6px;
-      padding: 28px;
-      background: var(--white);
-      margin-bottom: 20px;
-      transition: 0.3s;
-    }
+    /* GRID & CARDS */
+    .grid-2 { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: start; }
+    .card { border: 1px solid #E5E7EB; border-radius: 6px; padding: 25px; background: var(--white); margin-bottom: 20px; transition: 0.3s; }
     .card:hover { border-color: var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-    
-    .card-header { 
-      font-family: 'Playfair Display', serif; 
-      font-size: 1.25rem; 
-      font-weight: 700;
-      display: block; 
-      margin-bottom: 10px; 
-    }
+    .card-header { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; display: block; }
+    .card-header a { color: var(--dark); }
 
-    .skills-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 24px;
-    }
+    ul { list-style: none; }
+    li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+    li::before { content: "•"; color: var(--primary); position: absolute; left: 0; font-weight: 800; }
 
-    form input, form select, form textarea {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #DDD;
-      border-radius: 4px;
-      font-family: inherit;
-      font-size: 1rem;
-      margin-bottom: 16px;
-    }
+    /* FORMS */
+    form input, form select, form textarea { width: 100%; padding: 16px; border: 1px solid #DDD; border-radius: 4px; font-size: 1rem; margin-bottom: 16px; font-family: inherit; }
 
-    .footer { text-align: center; padding: 60px; color: #6B7280; border-top: 1px solid #EEE; background: var(--white); font-size: 0.9rem; }
-
+    /* MOBILE ADJUSTMENTS */
     @media (max-width: 768px) {
-      .grid-2 { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .skills-list { grid-template-columns: 1fr; }
+      .s { padding: 60px 20px; }
+      .grid-2 { grid-template-columns: 1fr; gap: 30px; }
+      .hero { min-height: auto; padding-top: 140px; padding-bottom: 80px; }
+      .hero div { flex-direction: column; width: 100%; gap: 15px !important; }
+      .btn { width: 100%; }
     }
+
+    .footer { text-align: center; padding: 40px 20px; border-top: 1px solid #EEE; background: var(--white); font-size: 0.9rem; color: #6B7280; }
   </style>
 </head>
 <body>
 
 <nav class="nav">
   <div class="nav-logo">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C4A97D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 12px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4A97D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;">
         <circle cx="12" cy="12" r="10"></circle>
         <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
     </svg>
     Peter Johnson | Ayadee Foundation
   </div>
-  <div class="nav-links">
+  
+  <div class="menu-toggle" id="mobile-menu">
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="nav-links" id="nav-list">
     <a href="#about">About</a>
     <a href="#programs">Programs</a>
     <a href="#fellowship">Fellowship</a>
@@ -220,9 +178,7 @@
 <section class="hero">
   <span class="s-subtitle">Strategic Foresight • AI Governance • DAO Research</span>
   <h1>Education & Advisory for Institutional Change</h1>
-  <p class="hero-sub">
-    Bridging machine learning research, cooperative governance models, and global policy to help leaders navigate systemic transformation.
-  </p>
+  <p class="hero-sub">Bridging ML research, cooperative governance models, and global policy to help leaders navigate systemic transformation.</p>
   <div style="display:flex; gap:16px;">
     <a href="#contact" class="btn btn-primary">Request Advisory</a>
     <a href="#programs" class="btn btn-outline">View Programs</a>
@@ -230,12 +186,10 @@
 </section>
 
 <div class="logos">
-  <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:#999; margin-bottom:20px;">Institutional Experience</p>
   <div class="logos-grid">
     <div class="logo-item">EUROPEAN COMMISSION</div>
     <div class="logo-item">SCALE AI</div>
     <div class="logo-item">USAID</div>
-    <div class="logo-item">AFRICAN DEVELOPMENT BANK</div>
     <div class="logo-item">UNDP</div>
     <div class="logo-item">BMW FOUNDATION</div>
     <div class="logo-item">YPO</div>
@@ -247,23 +201,12 @@
     <div>
       <span class="s-subtitle">The Perspective</span>
       <h2 class="s-title">Bridging Research & Global Strategy</h2>
-      <p style="margin-bottom:18px;">
-        As a <strong>Finance Fellow with Scale AI’s Human Frontier Collective</strong>, I work with ML research teams on how frontier models understand financial systems. This practical work informs my PhD research on <strong>Decentralized Autonomous Organizations (DAOs)</strong> and cooperative governance at the University of the Basque Country.
-      </p>
-      <p style="margin-bottom:18px;">
-        A former <strong>U.S. Foreign Service Officer</strong>, I have managed global coalitions and development programs. Through the <strong>Ayadee Foundation</strong>, I lead a team designing strategies for emerging technologies for multilateral organizations like the <strong>FAO, UNDP, and the European Commission</strong>.
-      </p>
-      
-      <ul class="skills-list">
-        <li>Strategic Foresight</li>
-        <li>AI Governance</li>
-        <li>DAO & Blockchain</li>
-        <li>FinTech Policy</li>
-      </ul>
-      <a href="#contact" class="btn btn-outline" style="margin-top:20px;">Work With Us</a>
+      <p style="margin-bottom:20px;">As a <b>Finance Fellow with Scale AI</b>, I work with ML research teams on how frontier models understand financial systems. This practical work informs my PhD research on <b>DAOs</b> and cooperative governance at the University of the Basque Country.</p>
+      <p style="margin-bottom:20px;">A former <b>U.S. Foreign Service Officer</b>, I led global coalitions and development programs. Through the <b>Ayadee Foundation</b>, I lead a team designing strategies for emerging technologies for multilateral organizations like the <b>FAO, UNDP, and the European Commission</b>.</p>
+      <a href="#contact" class="btn btn-outline">Work With Us</a>
     </div>
-    <div style="background:#F3F4F6; padding:30px; border-radius:8px; border: 1px solid #E5E7EB;">
-      <h4 style="margin-bottom:15px; font-family:'Playfair Display', serif;">Academic & Institutional</h4>
+    <div style="background:#F3F4F6; padding:25px; border-radius:8px; border: 1px solid #E5E7EB;">
+      <h4 style="font-family:'Playfair Display', serif; margin-bottom:15px;">Academic & Institutional</h4>
       <ul>
         <li>Johns Hopkins SAIS (MA)</li>
         <li>SUNY Geneseo (BA)</li>
@@ -271,7 +214,7 @@
         <li>Bretton Woods Committee</li>
         <li>Lifeboat Foundation Advisor</li>
       </ul>
-      <a href="https://linkedin.com/in/peterjohnson" target="_blank" style="display:block; margin-top:20px; font-weight:700; color:var(--primary); font-size: 0.95rem;">Connect on LinkedIn →</a>
+      <a href="https://linkedin.com/in/peterjohnson" target="_blank" style="display:block; margin-top:20px; font-weight:700; color:var(--primary);">Connect on LinkedIn →</a>
     </div>
   </div>
 </section>
@@ -280,36 +223,33 @@
   <div class="section-narrow">
     <span class="s-subtitle">Executive Education</span>
     <h2 class="s-title">Institutional Capacity & Leadership</h2>
-    <p style="margin-bottom:35px;">I have taught 1,000+ students and executives globally at <strong>Humboldt University zu Berlin</strong> and for organizations like the <strong>BMW Foundation</strong> and <strong>Global Diplomacy Lab</strong>.</p>
-
+    
     <div class="card">
-      <span class="card-header">Strategic Foresight for the Digital Age</span>
-      <p>Equipping leaders with horizon scanning, weak signal detection, and scenario development tools to build resilient strategy.</p>
-    </div>
-
-    <div class="card">
-      <span class="card-header">AI Governance for Global Institutions</span>
-      <p>A practitioner-built framework for risk classification, governance architecture, and implementation roadmaps.</p>
+      <span class="card-header"><a href="foresight.html">Strategic Foresight for the Digital Age →</a></span>
+      <p>Equipping leaders with horizon scanning and scenario development tools to build resilient strategy.</p>
     </div>
 
     <div class="card">
-      <span class="card-header">DAOs & Cooperative Governance</span>
-      <p>How decentralized coordination and 180 years of cooperative history inform the next generation of organizational design.</p>
+      <span class="card-header"><a href="ai-gov.html">AI Governance for Global Institutions →</a></span>
+      <p>Practitioner-built framework for risk classification, governance architecture, and implementation.</p>
     </div>
 
     <div class="card">
-      <span class="card-header">Entrepreneurial Culture: Play & Creativity</span>
-      <p>Cultivating human creativity and reflective thinking to generate original ideas in an AI-saturated environment.</p>
+      <span class="card-header"><a href="daos.html">DAOs & Cooperative Governance →</a></span>
+      <p>How decentralized coordination and 180 years of cooperative history inform the next generation of design.</p>
     </div>
 
     <div class="card">
-      <span class="card-header">Social Entrepreneurship & Innovation</span>
-      <p>Designing ventures for social impact, combining business model innovation with sustainable development goals to drive systemic change.</p>
+      <span class="card-header"><a href="creativity.html">Entrepreneurial Culture: Play & Creativity →</a></span>
+      <p>Cultivating human original thought and reflective thinking in an AI-saturated environment.</p>
     </div>
 
-    <div style="text-align:center; margin-top:30px;">
-      <a href="#contact" class="btn btn-primary">Inquire About Enrollment</a>
+    <div class="card">
+      <span class="card-header"><a href="social-ent.html">Social Entrepreneurship & Innovation →</a></span>
+      <p>Designing ventures for systemic change, combining business model innovation with sustainable development goals.</p>
     </div>
+
+    <div style="text-align:center; margin-top:30px;"><a href="#contact" class="btn btn-primary">Inquire About Enrollment</a></div>
   </div>
 </section>
 
@@ -317,33 +257,8 @@
   <div class="section-narrow">
     <span class="s-subtitle">Knowledge Production</span>
     <h2 class="s-title">Architects of the Future Fellowship</h2>
-    <p style="margin-bottom:30px;">
-      A selective program for emerging leaders working at the intersection of technology, governance, and global impact. The fellowship emphasizes <strong>knowledge production, applied research, and think tank–style contributions</strong>.
-    </p>
-
-    <div class="card">
-      <span class="card-header">Program Structure & Contribution</span>
-      <p>6-month, part-time fellowship (8–12 hours/week), remote-first. Fellows contribute directly to research, program development, and <strong>real-world advisory projects</strong> in AI governance and institutional transformation.</p>
-    </div>
-
-    <div class="card">
-      <span class="card-header">Applied Research Focus</span>
-      <ul>
-        <li><strong>AI Governance:</strong> Policy frameworks and risk mitigation for frontier models.</li>
-        <li><strong>Strategic Foresight:</strong> Building scenario models for digital ecosystems.</li>
-        <li><strong>Digital Economy:</strong> Researching fintech policy and digital identity systems.</li>
-        <li><strong>Institutional Design:</strong> Investigating how DAOs and cooperatives enable participatory oversight of emerging tech.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <span class="card-header">Who Should Apply</span>
-      <p>Candidates demonstrating strong analytical capability and a background in policy, entrepreneurship, or international development.</p>
-    </div>
-
-    <div style="text-align:center; margin-top:30px;">
-      <a href="https://docs.google.com/forms/d/1yZqbRmObBTzX5wBc8BQKO8omUsdWykN5yPQSPbZjj0g/edit" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Apply for the Fellowship</a>
-    </div>
+    <p style="margin-bottom:25px;">A selective program for emerging leaders working at the intersection of technology, governance, and global impact. The fellowship emphasizes applied research and think tank–style contributions.</p>
+    <div style="text-align:center;"><a href="https://docs.google.com/forms/d/1yZqbRmObBTzX5wBc8BQKO8omUsdWykN5yPQSPbZjj0g/edit" target="_blank" class="btn btn-primary">Apply for Fellowship</a></div>
   </div>
 </section>
 
@@ -351,86 +266,18 @@
   <div class="section-narrow">
     <span class="s-subtitle">Media & Speaking</span>
     <h2 class="s-title">Keynotes, Podcasts, & Commentary</h2>
-    <p style="margin-bottom:30px;">Available for expert commentary and speaking engagements on high-stakes technological change.</p>
-    
     <div class="grid-2" style="align-items: center;">
       <ul>
         <li>Why Governance is the Bottleneck of AI ROI</li>
         <li>Lessons from Mondragon for Blockchain DAOs</li>
         <li>Navigating Uncertainty in Multilateral Policy</li>
-        <li>Democratic Participation in Algorithmic Systems</li>
       </ul>
-      <div style="border-left: 3px solid var(--primary); padding:20px 30px; background:white; border-radius:4px;">
-        <p><em>"Peter bridges the gap between frontier AI development and the practical realities of global governance."</em></p>
+      <div style="border-left: 3px solid var(--primary); padding:20px; background:white; border-radius:4px;">
+        <p><i>"Peter bridges the gap between frontier AI development and the practical realities of global governance."</i></p>
       </div>
     </div>
-    <div style="text-align:center; margin-top:40px;">
-      <a href="#contact" class="btn btn-primary">Invite as Guest / Speaker</a>
-    </div>
+    <div style="text-align:center; margin-top:40px;"><a href="#contact" class="btn btn-primary">Invite as Guest / Speaker</a></div>
   </div>
 </section>
 
 <section class="s s-white" id="contact">
-  <div class="section-narrow">
-    <div style="text-align:center; margin-bottom:50px;">
-      <h2 class="s-title">Start the Conversation</h2>
-      <p>Available for advisory mandates, research collaboration, and speaking engagements.</p>
-    </div>
-
-    <form action="https://formspree.io/f/meerbvzp" method="POST" style="max-width:650px; margin:0 auto; display:flex; flex-direction:column;">
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
-        <input type="text" name="name" placeholder="Name" required />
-        <input type="email" name="email" placeholder="Email" required />
-      </div>
-      <input type="text" name="subject" placeholder="Subject (Advisory, Speaking, Course Inquiry)" required />
-      <select name="inquiry_type" required>
-        <option value="">Reason for Inquiry</option>
-        <option value="Advisory">Strategic Advisory / Consulting</option>
-        <option value="Speaking">Speaking / Media Appearance</option>
-        <option value="Education">Executive Education / Fellowship</option>
-        <option value="Research">Research Collaboration</option>
-      </select>
-      <textarea name="message" placeholder="How can I help you?" required style="min-height:150px;"></textarea>
-      <button type="submit" class="btn btn-primary" style="align-self:center; min-width:200px;">Send Message</button>
-    </form>
-  </div>
-</section>
-
-<footer class="footer">
-  <p>© 2026 Peter Johnson | Ayadee Foundation</p>
-  <p style="margin-top:8px;">U.S. • France • Germany | Delivering Insight Globally</p>
-</footer>
-
-<script>
-  // Smooth scroll logic for anchors
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const targetElement = document.querySelector(this.getAttribute('href'));
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 70,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-
-  // Deep linking and scroll logic
-  window.addEventListener('load', function() {
-    if (window.location.hash) {
-      const targetElement = document.querySelector(window.location.hash);
-      if (targetElement) {
-        setTimeout(function() {
-          window.scrollTo({
-            top: targetElement.offsetTop - 70,
-            behavior: 'smooth'
-          });
-        }, 150);
-      }
-    }
-  });
-</script>
-
-</body>
-</html>
