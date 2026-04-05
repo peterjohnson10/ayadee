@@ -13,6 +13,7 @@
             --white: #FFFFFF;
         }
 
+        /* Essential Reset */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         
         body { 
@@ -24,7 +25,7 @@
             display: block !important;
         }
         
-        strong, b { font-weight: 700; }
+        strong, b { font-weight: 700; font-size: inherit; }
         a { color: var(--gold); text-decoration: none; transition: 0.3s; }
         a:hover { opacity: 0.8; }
 
@@ -39,7 +40,9 @@
             border-bottom: 1px solid #E5E7EB;
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
         }
-        .logo { font-weight: 800; font-size: 1.1rem; color: var(--dark); letter-spacing: 0.5px; text-transform: uppercase; }
+        .logo { font-weight: 800; font-size: 1.1rem; color: var(--dark); letter-spacing: 0.5px; text-transform: uppercase; display: flex; align-items: center; }
+        .logo-icon { margin-right: 10px; font-size: 1.3rem; }
+
         .nav-links { display: flex; gap: 20px; }
         .nav-links a { font-size: 0.85rem; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.5px; }
 
@@ -61,7 +64,7 @@
         .hero h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); margin-bottom: 20px; font-weight: 800; max-width: 950px; margin-left: auto; margin-right: auto; }
         .hero-sub { font-size: 1.2rem; color: var(--text); max-width: 750px; margin: 0 auto 40px; }
 
-        .btn { padding: 16px 32px; background: var(--gold); color: white !important; font-weight: 700; border-radius: 4px; display: inline-block; border: none; font-size: 1rem; cursor: pointer; }
+        .btn { padding: 16px 32px; background: var(--gold); color: white !important; font-weight: 700; border-radius: 4px; display: inline-block; border: none; font-size: 1rem; cursor: pointer; text-align: center; }
 
         .grid-2 { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; }
         .card { background: white; padding: 30px; margin-bottom: 20px; border-radius: 6px; border: 1px solid #E5E7EB; }
@@ -71,13 +74,14 @@
         li { position: relative; padding-left: 25px; margin-bottom: 12px; }
         li::before { content: "•"; color: var(--gold); position: absolute; left: 0; font-weight: 900; }
 
-        /* FORM */
-        form { background: white; padding: 40px; border-radius: 8px; border: 1px solid #E5E7EB; }
+        /* CONTACT FORM STYLES */
+        .contact-wrap { background: white; padding: 40px; border-radius: 8px; border: 1px solid #E5E7EB; max-width: 700px; margin: 0 auto; }
         form input, form select, form textarea { width: 100%; padding: 14px; margin-bottom: 20px; border: 1px solid #DDD; border-radius: 4px; font-size: 1rem; font-family: inherit; }
 
         @media (max-width: 768px) {
             .grid-2 { grid-template-columns: 1fr; }
             section { padding: 70px 24px; }
+            .btn { width: 100%; }
         }
 
         footer { text-align: center; padding: 60px 24px; border-top: 1px solid #EEE; color: #888; background: white; font-size: 0.9rem; }
@@ -86,7 +90,7 @@
 <body>
 
 <nav>
-    <div class="logo">Ayadee Foundation</div>
+    <div class="logo"><span class="logo-icon">🧭</span> Ayadee Foundation</div>
     <div class="nav-links">
         <a href="#about">About</a>
         <a href="#capital">Capital</a>
@@ -108,6 +112,17 @@
         </div>
     </div>
 </section>
+
+<div style="padding: 40px 20px; background: white; border-top: 1px solid #EEE; text-align: center;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; opacity: 0.6; font-weight: 700; font-size: 0.8rem; letter-spacing: 1px;">
+        <div>EUROPEAN COMMISSION</div>
+        <div>SCALE AI</div>
+        <div>USAID</div>
+        <div>UNDP</div>
+        <div>BMW FOUNDATION</div>
+        <div>YPO</div>
+    </div>
+</div>
 
 <section id="about" class="section-white">
     <div class="container grid-2">
@@ -153,7 +168,7 @@
         <span class="s-subtitle">Executive Education</span>
         <h2 class="s-title">Institutional Capacity & Leadership</h2>
         <div class="card"><h3><a href="foresight.html">Strategic Foresight for the Digital Age →</a></h3><p>Equipping leaders with horizon scanning and scenario development tools for resilient strategy.</p></div>
-        <div class="card"><h3><a href="ai-gov.html">AI Governance for Global Institutions →</a></h3><p>A practitioner-built framework for risk classification, governance architecture, and implementation.</p></div>
+        <div class="card"><h3><a href="ai-gov.html">AI Governance for Global Institutions →</a></h3><p>Practitioner-built framework for risk classification, governance architecture, and implementation.</p></div>
         <div class="card"><h3><a href="daos.html">DAOs & Cooperative Governance →</a></h3><p>How decentralized coordination and 180 years of cooperative history inform the next generation of design.</p></div>
         <div class="card"><h3><a href="creativity.html">Entrepreneurial Culture: Play & Creativity →</a></h3><p>Cultivating human original thought and reflective thinking in an AI-saturated environment.</p></div>
         <div class="card"><h3><a href="social-ent.html">Social Entrepreneurship & Innovation →</a></h3><p>Designing ventures for systemic change. (Lead Instructors: Peter Johnson & Andrew Mack)</p></div>
@@ -204,7 +219,7 @@
         <h2 class="s-title">Keynotes, Podcasts & Commentary</h2>
         <div class="grid-2">
             <div>
-                <p style="margin-bottom:20px;">Available for expert commentary and speaking engagements on high-stakes technological change and global governance.</p>
+                <p style="margin-bottom:20px;">The Foundation provides expert commentary and keynotes on high-stakes technological change and global governance.</p>
                 <ul>
                     <li>Why Governance is the Bottleneck of AI ROI</li>
                     <li>Lessons from Mondragon for Blockchain DAOs</li>
@@ -212,4 +227,63 @@
                     <li>Democratic Participation in Algorithmic Systems</li>
                 </ul>
             </div>
-            <div style="border-left: 3px solid var(--gold); padding:2
+            <div style="border-left: 3px solid var(--gold); padding:20px; background:var(--light); border-radius:4px;">
+                <p><i>"The Foundation bridges the gap between frontier AI development and the practical realities of global governance."</i></p>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:40px;"><a href="#contact" class="btn">Invite as Guest / Speaker</a></div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <div style="text-align:center; margin-bottom:40px;">
+            <span class="s-subtitle">Engagement</span>
+            <h2 class="s-title">Start the Conversation</h2>
+            <p>Available for advisory mandates, research collaboration, and speaking engagements.</p>
+        </div>
+        
+        <div class="contact-wrap">
+            <form action="https://formspree.io/f/meerbvzp" method="POST">
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                    <input type="text" name="name" placeholder="Name" required />
+                    <input type="email" name="email" placeholder="Email" required />
+                </div>
+                <input type="text" name="subject" placeholder="Subject" required />
+                <select name="type" required>
+                    <option value="">Inquiry Type</option>
+                    <option value="Advisory">Strategic Advisory & Governance</option>
+                    <option value="Investment">Strategic Capital & Portfolio Inquiries</option>
+                    <option value="Education">Executive Education & Institutional Training</option>
+                    <option value="Fellowship">Fellowship Inquiries & Applied Research</option>
+                    <option value="Media">Media, Keynotes & Public Speaking</option>
+                </select>
+                <textarea name="message" placeholder="How can the Foundation assist you?" style="min-height:140px;"></textarea>
+                <button type="submit" class="btn" style="width:100%;">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Ayadee Foundation</p>
+</footer>
+
+<script>
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
