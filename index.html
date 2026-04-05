@@ -25,12 +25,11 @@
             color: var(--dark); 
             line-height: 1.7;
             margin: 0;
-            overflow-x: hidden;
+            display: block !important; 
         }
         
         strong, b { font-weight: 700; }
         a { color: var(--gold); text-decoration: none; transition: 0.3s; }
-        a:hover { opacity: 0.8; }
 
         /* NAVIGATION */
         nav { 
@@ -44,9 +43,7 @@
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
         }
         .logo { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 0.95rem; color: var(--dark); display: flex; align-items: center; text-transform: uppercase; letter-spacing: 1px; }
-        .logo-icon { width: 18px; height: 18px; border: 2px solid var(--gold); border-radius: 50%; margin-right: 12px; position: relative; }
-        .logo-icon::after { content: ''; position: absolute; top: 3px; left: 7px; width: 2px; height: 7px; background: var(--gold); transform: rotate(45deg); }
-
+        
         .nav-links { display: flex; gap: 20px; }
         .nav-links a { font-size: 0.8rem; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.5px; }
 
@@ -72,24 +69,20 @@
         .card { background: white; padding: 30px; margin-bottom: 20px; border-radius: 6px; border: 1px solid #E5E7EB; }
         .card h3 { font-family: 'Playfair Display', serif; margin-bottom: 12px; font-size: 1.3rem; }
         
-        /* ECOSYSTEM (Tablet Optimization) */
+        /* ECOSYSTEM */
         .ecosystem-list { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 30px; }
         .eco-item { font-size: 0.85rem; font-weight: 600; color: #555; border-left: 2px solid var(--gold); padding-left: 15px; }
 
-        /* CONTACT FORM FIXES */
-        .contact-form { background: white; padding: clamp(20px, 5vw, 40px); border-radius: 8px; border: 1px solid #E5E7EB; width: 100%; margin: 0 auto; }
+        /* CONTACT FORM */
+        .contact-form { background: white; padding: 30px; border-radius: 8px; border: 1px solid #E5E7EB; width: 100%; margin: 0 auto; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
         
         form input, form select, form textarea { 
-            width: 100%; 
-            padding: 14px; 
-            border: 1px solid #DDD; 
-            border-radius: 4px; 
-            font-size: 1rem; 
-            font-family: inherit;
+            width: 100%; padding: 14px; border: 1px solid #DDD; border-radius: 4px; font-size: 1rem; font-family: inherit; margin-bottom: 15px;
         }
-        form textarea { min-height: 150px; resize: vertical; margin-bottom: 20px; display: block; }
+        form textarea { min-height: 150px; resize: vertical; display: block; }
 
+        /* RESPONSIVENESS */
         @media (min-width: 768px) {
             .ecosystem-list { grid-template-columns: repeat(3, 1fr); }
         }
@@ -109,7 +102,7 @@
 <body>
 
 <nav>
-    <div class="logo"><div class="logo-icon"></div>Ayadee Foundation | Strategic Foresight</div>
+    <div class="logo">Ayadee Foundation | Strategic Foresight</div>
     <div class="nav-links">
         <a href="#about">About</a>
         <a href="#ecosystem">Ecosystem</a>
@@ -119,7 +112,7 @@
         <a href="#fellowship">Fellowship</a>
         <a href="#contact">Contact</a>
     </div>
-    <div class="menu-toggle"><div></div><div></div><div></div></div>
+    <div class="menu-toggle" id="mobile-btn"><div></div><div></div><div></div></div>
 </nav>
 
 <section class="hero">
@@ -149,16 +142,27 @@
         <div style="background:var(--light); padding:35px; border-radius:8px;">
             <h3 style="margin-bottom:20px; font-size:1rem; text-transform:uppercase; letter-spacing:1px;">Institutional Reach</h3>
             <ul style="list-style:none;">
-                <li style="margin-bottom:12px;">• Johns Hopkins SAIS (MA)</li>
-                <li style="margin-bottom:12px;">• YPO Social Impact Exec Committee</li>
-                <li style="margin-bottom:12px;">• Bretton Woods Committee</li>
-                <li style="margin-bottom:12px;">• Strategic Partners via Blue Shift Labs</li>
+                <li>• Johns Hopkins SAIS (MA)</li>
+                <li>• YPO Social Impact Exec Committee</li>
+                <li>• Bretton Woods Committee</li>
+                <li>• Strategic Partners via Blue Shift Labs</li>
             </ul>
         </div>
     </div>
 </section>
 
-<section id="ecosystem">
+<section id="advisory-intro">
+    <div class="container">
+        <span class="s-subtitle">High-Stakes Advisory</span>
+        <h2 class="s-title">Institutional Resilience & AI Governance</h2>
+        <div class="card">
+            <p style="margin-bottom:20px;">The Ayadee Foundation provides specialized advisory services to multilateral organizations, family offices, and governments. We focus on risk classification, governance architecture, and implementation roadmaps for frontier technology.</p>
+            <a href="advisory.html" style="font-weight:700; color:var(--gold);">Explore Advisory Services →</a>
+        </div>
+    </div>
+</section>
+
+<section id="ecosystem" class="section-white">
     <div class="container">
         <span class="s-subtitle">Global Network</span>
         <h2 class="s-title">Institutional Engagements</h2>
@@ -175,6 +179,10 @@
             <div class="eco-item">University of Nairobi</div>
             <div class="eco-item">EU Missions: Honduras & Belize</div>
             <div class="eco-item">Monica Herrera School of Comm.</div>
+            <div class="eco-item">University of El Salvador</div>
+            <div class="eco-item">Francisco Gavidia University</div>
+            <div class="eco-item">UNITEC Honduras</div>
+            <div class="eco-item">Global Diplomacy Lab</div>
         </div>
     </div>
 </section>
@@ -191,7 +199,6 @@
             <div style="border: 1px solid var(--gold); padding:30px; border-radius:8px; background:rgba(196,169,125,0.1);">
                 <h4 style="color:var(--gold); margin-bottom:12px;">Allocation Strategy</h4>
                 <p style="font-size:0.95rem; opacity:0.9;">Bespoke due diligence and allocation strategy for family offices and institutional funds navigating high-complexity frontier markets.</p>
-                <a href="#contact" style="display:inline-block; margin-top:15px; font-weight:700; color:var(--gold);">Inquire About Advisory →</a>
             </div>
         </div>
     </div>
@@ -216,11 +223,9 @@
         <div class="card">
             <h3>Applied Research Focus</h3>
             <div class="grid-2" style="gap:20px;">
-                <ul style="font-size: 0.95rem;">
+                <ul style="font-size: 0.95rem; list-style: disc; padding-left: 20px;">
                     <li><strong>AI Governance:</strong> Policy frameworks and risk mitigation for frontier models.</li>
                     <li><strong>Strategic Foresight:</strong> Building scenario models for digital ecosystems.</li>
-                </ul>
-                <ul style="font-size: 0.95rem;">
                     <li><strong>Digital Economy:</strong> Researching fintech policy and digital identity systems.</li>
                     <li><strong>Institutional Design:</strong> Investigating how DAOs enable participatory oversight.</li>
                 </ul>
@@ -235,11 +240,11 @@
         <h2 class="s-title" style="text-align:center;">Start the Conversation</h2>
         <form action="https://formspree.io/f/meerbvzp" method="POST" class="contact-form">
             <div class="form-row">
-                <input type="text" name="name" placeholder="Name" required />
-                <input type="email" name="email" placeholder="Email" required />
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
             </div>
-            <input type="text" name="subject" placeholder="Subject" required style="margin-bottom:16px;" />
-            <select name="type" required style="margin-bottom:16px;">
+            <input type="text" name="subject" placeholder="Subject" required>
+            <select name="type" required>
                 <option value="">Inquiry Type</option>
                 <option value="Advisory">Strategic Advisory / Governance</option>
                 <option value="Investment">Strategic Capital / Investment Advisory</option>
@@ -254,7 +259,6 @@
 <footer><p>© 2026 Ayadee Foundation | Strategic Foresight</p></footer>
 
 <script>
-    // Smooth scroll and external hash jump
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
@@ -269,20 +273,28 @@
     window.addEventListener('load', function() {
         if (window.location.hash) {
             const target = document.querySelector(window.location.hash);
-            if (target) { setTimeout(() => { window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' }); }, 150); }
+            if (target) { setTimeout(() => { window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' }); }, 300); }
         }
     });
 
-    // Mobile Menu
-    const menuBtn = document.querySelector('.menu-toggle');
+    const menuBtn = document.getElementById('mobile-btn');
     const navLinks = document.querySelector('.nav-links');
-    menuBtn.addEventListener('click', () => {
-        const isVis = navLinks.style.display === 'flex';
-        navLinks.style.display = isVis ? 'none' : 'flex';
-        if (!isVis) {
-            Object.assign(navLinks.style, { flexDirection: 'column', position: 'absolute', top: '70px', left: '0', width: '100%', background: 'white', padding: '20px', borderBottom: '1px solid #EEE' });
-        }
-    });
+    if(menuBtn) {
+        menuBtn.addEventListener('click', () => {
+            const isVis = navLinks.style.display === 'flex';
+            navLinks.style.display = isVis ? 'none' : 'flex';
+            if (!isVis) {
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '70px';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = 'white';
+                navLinks.style.padding = '20px';
+                navLinks.style.borderBottom = '1px solid #EEE';
+            }
+        });
+    }
 </script>
 </body>
 </html>
