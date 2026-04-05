@@ -4,35 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strategic Advisory | Ayadee Foundation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #C4A97D; --dark: #111827; --text: #374151; --light: #F8F9FB; }
         body { font-family: 'Source Sans 3', sans-serif; line-height: 1.7; color: var(--text); background: var(--light); margin: 0; }
-        nav { height: 70px; display: flex; align-items: center; padding: 0 40px; background: white; border-bottom: 1px solid #EEE; position: sticky; top: 0; }
-        .logo { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 0.95rem; text-transform: uppercase; color: var(--dark); text-decoration: none; display: flex; align-items: center; }
-        .logo-icon { width: 18px; height: 18px; border: 2px solid var(--gold); border-radius: 50%; margin-right: 12px; position: relative; }
-        .logo-icon::after { content: ''; position: absolute; top: 3px; left: 7px; width: 2px; height: 7px; background: var(--gold); transform: rotate(45deg); }
-        .container { max-width: 850px; margin: 40px auto; background: white; padding: 60px 40px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--dark); margin-bottom: 20px; }
-        h2 { font-family: 'Playfair Display', serif; color: var(--dark); margin-top: 40px; }
-        .btn { display: inline-block; padding: 14px 28px; background: var(--gold); color: white !important; text-decoration: none; border-radius: 4px; font-weight: 700; text-transform: uppercase; margin-top: 30px; letter-spacing: 1px; }
+        nav { height: 70px; display: flex; align-items: center; padding: 0 40px; background: white; border-bottom: 1px solid #E5E7EB; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 0.95rem; color: var(--dark); text-decoration: none; text-transform: uppercase; letter-spacing: 1px; }
+        .container { max-width: 850px; margin: 40px auto; background: white; padding: 60px 50px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        h1 { font-family: 'Playfair Display', serif; font-size: 2.6rem; color: var(--dark); margin-bottom: 20px; }
+        .foresight-pill { background: var(--light); padding: 30px; border-left: 4px solid var(--gold); margin: 30px 0; }
+        h3 { font-family: 'Playfair Display', serif; color: var(--dark); margin-bottom: 10px; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+        .btn { display: inline-block; padding: 14px 28px; background: var(--gold); color: white !important; text-decoration: none; border-radius: 4px; font-weight: 700; text-transform: uppercase; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <nav><a href="index.html" class="logo"><div class="logo-icon"></div>Ayadee Foundation | Strategic Foresight</a></nav>
+    <nav><a href="index.html" class="logo">Ayadee Foundation | Strategic Foresight</a></nav>
     <div class="container">
-        <a href="index.html" style="color:var(--gold);">← Back to Home</a>
+        <a href="index.html" style="color:var(--gold); font-weight:700;">← Back to Home</a>
         <h1>Strategic Advisory Services</h1>
-        <p>The Ayadee Foundation provides high-stakes advisory at the intersection of technological disruption and institutional resilience. We partner with multilateral organizations, family offices, and governments to navigate the complexities of the digital transition.</p>
-        
-        <h2>Core Focus Areas</h2>
+        <p>The Ayadee Foundation delivers high-stakes advisory at the intersection of technological disruption and institutional resilience.</p>
+
+        <div class="foresight-pill">
+            <h3>Applied Strategic Foresight</h3>
+            <p>Our advisory practice is built on a foundation of rigorous foresight. We help leadership teams move beyond reactive planning to anticipate structural shifts.</p>
+            <ul>
+                <li><strong>Horizon Scanning:</strong> Detecting "weak signals" in AI and global governance.</li>
+                <li><strong>Scenario Stress-Testing:</strong> Developing "What If" narratives to test institutional strategy.</li>
+                <li><strong>Futures Literacy:</strong> Embedding long-range foresight into executive decision cycles.</li>
+            </ul>
+        </div>
+
+        <h3>Core Focus Areas</h3>
         <ul>
-            <li><strong>Institutional Strategy:</strong> Aligning long-term missions with the rapidly shifting landscape of frontier AI and decentralized systems.</li>
-            <li><strong>Governance Frameworks:</strong> Designing robust oversight mechanisms for AI implementation and risk mitigation.</li>
-            <li><strong>Technical Due Diligence:</strong> Evaluating emerging technologies for investment and policy integration.</li>
+            <li><strong>AI Governance:</strong> Risk classification and oversight protocols.</li>
+            <li><strong>Decentralized Coordination:</strong> Integrating DAO mechanics and cooperative models.</li>
+            <li><strong>Policy Design:</strong> Frameworks for digital identity and fintech inclusion.</li>
         </ul>
-        
-        <a href="index.html#contact" class="btn">Inquire About Advisory</a>
+
+        <div style="text-align:center;"><a href="index.html#contact" class="btn">Inquire About Advisory</a></div>
     </div>
 </body>
 </html>
