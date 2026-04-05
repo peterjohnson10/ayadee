@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrepreneurial Culture: Play &amp; Creativity | Ayadee Foundation</title>
+    <style>
+        :root {
+            --gold: #C4A97D;
+            --dark: #111827;
+            --text: #374151;
+            --light: #F8F9FB;
+            --white: #FFFFFF;
+        }
+        .status-bar { height: 4px; background: var(--gold); width: 100%; position: fixed; top: 0; z-index: 9999; }
+
+```
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        background: var(--light);
+        color: var(--dark);
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    strong, b { font-weight: 700; font-size: inherit; }
+    a { color: var(--gold); text-decoration: none; transition: 0.3s; }
+    a:hover { opacity: 0.8; }
+
+    /* NAVIGATION */
+    nav {
+        background: white;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        border-bottom: 1px solid #E5E7EB;
+        position: fixed; top: 4px; left: 0; right: 0; z-index: 1000;
+    }
+    .logo a { color: var(--dark); }
+    .logo { font-weight: 800; font-size: 1.1rem; color: var(--dark); display: flex; align-items: center; }
+    .logo-icon { width: 20px; height: 20px; border: 2px solid var(--gold); border-radius: 50%; margin-right: 12px; position: relative; }
+    .logo-icon::after { content: ''; position: absolute; top: 4px; left: 9px; width: 2px; height: 8px; background: var(--gold); transform: rotate(45deg); }
+
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+
+    .menu-toggle { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .menu-toggle div { width: 25px; height: 2px; background: var(--dark); }
+
+    .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 20px 40px;
+        border-bottom: 1px solid #E5E7EB;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    /* LAYOUT */
+    section { padding: 100px 24px; scroll-margin-top: 80px; }
+    .section-white { background: white; }
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    .s-subtitle { color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 10px; display: block; }
+    .s-title { font-size: clamp(1.8rem, 5vw, 2.6rem); margin-bottom: 25px; line-height: 1.2; font-weight: 800; }
+
+    .btn { padding: 16px 32px; background: var(--gold); color: white !important; font-weight: 700; border-radius: 4px; display: inline-block; border: none; font-size: 1rem; cursor: pointer; }
+    .btn-outline { background: transparent; border: 2px solid var(--gold); color: var(--dark) !important; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; }
+    .card { background: white; padding: 30px; margin-bottom: 20px; border-radius: 6px; border: 1px solid #E5E7EB; }
+    .card h3 { margin-bottom: 12px; font-size: 1.3rem; }
+
+    ul { list-style: none; }
+    li { position: relative; padding-left: 25px; margin-bottom: 12px; }
+    li::before { content: "\2022"; color: var(--gold); position: absolute; left: 0; font-weight: 900; }
+
+    /* COURSE HERO */
+    .course-hero {
+        padding: 160px 24px 90px;
+        background: var(--dark);
+        color: white;
+    }
+    .course-hero .s-subtitle { margin-bottom: 16px; }
+    .course-hero h1 {
+        font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+        margin-bottom: 24px;
+        font-weight: 800;
+        max-width: 850px;
+        line-height: 1.15;
+    }
+    .course-hero .hero-lead {
+        font-size: 1.2rem;
+        opacity: 0.88;
+        max-width: 720px;
+        margin-bottom: 40px;
+        line-height: 1.75;
+    }
+    .hero-meta {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(196,169,125,0.3);
+    }
+    .hero-meta-item { font-size: 0.9rem; }
+    .hero-meta-item span { display: block; color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.75rem; margin-bottom: 4px; }
+
+    /* PREMISE */
+    .premise-block {
+        background: white;
+        border-left: 4px solid var(--gold);
+        padding: 30px 35px;
+        border-radius: 0 6px 6px 0;
+        margin-bottom: 30px;
+        font-size: 1.05rem;
+    }
+
+    /* MODULE CARD */
+    .module-card {
+        background: white;
+        border: 1px solid #E5E7EB;
+        border-radius: 6px;
+        padding: 32px;
+        margin-bottom: 24px;
+    }
+    .module-card .module-num {
+        color: var(--gold);
+        font-weight: 800;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 10px;
+        display: block;
+    }
+    .module-card h3 { font-size: 1.25rem; margin-bottom: 10px; }
+    .module-card p { color: var(--text); font-size: 0.95rem; }
+
+    /* TENSION PAIR */
+    .tension-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0; margin-top: 35px; }
+    .tension-side {
+        padding: 30px;
+        border-radius: 6px;
+    }
+    .tension-left { background: var(--dark); color: white; border-radius: 6px 0 0 6px; }
+    .tension-right { background: white; border: 1px solid #E5E7EB; border-left: none; border-radius: 0 6px 6px 0; }
+    .tension-divider {
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--gold);
+        color: white;
+        font-weight: 800;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+    .tension-side h4 { margin-bottom: 10px; font-size: 1.05rem; }
+    .tension-side p { font-size: 0.9rem; opacity: 0.9; }
+
+    /* OUTCOMES STRIP */
+    .outcome-strip { background: var(--dark); color: white; }
+    .outcome-item { text-align: center; padding: 10px; }
+    .outcome-num { font-size: 2.8rem; font-weight: 800; color: var(--gold); display: block; line-height: 1; margin-bottom: 8px; }
+    .outcome-label { font-size: 0.9rem; opacity: 0.85; }
+
+    /* AUDIENCE */
+    .audience-tag {
+        display: inline-block;
+        padding: 8px 18px;
+        border: 1px solid #E5E7EB;
+        border-radius: 100px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        margin: 0 8px 12px 0;
+        color: var(--text);
+    }
+
+    /* INSTRUCTOR */
+    .instructor-block {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 35px;
+        align-items: start;
+    }
+    .instructor-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: var(--dark);
+        border: 3px solid var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--gold);
+    }
+
+    /* FORM */
+    form { background: white; padding: 40px; border-radius: 8px; border: 1px solid #E5E7EB; }
+    form input, form select, form textarea { width: 100%; padding: 14px; margin-bottom: 20px; border: 1px solid #DDD; border-radius: 4px; font-size: 1rem; font-family: inherit; }
+
+    footer { text-align: center; padding: 60px 24px; border-top: 1px solid #EEE; color: #888; background: white; }
+
+    @media (max-width: 950px) {
+        .nav-links { display: none; }
+        .menu-toggle { display: flex; }
+        .grid-2, .grid-3 { grid-template-columns: 1fr; }
+        .tension-grid { grid-template-columns: 1fr; }
+        .tension-left { border-radius: 6px 6px 0 0; }
+        .tension-right { border-radius: 0 0 6px 6px; border-left: 1px solid #E5E7EB; }
+        .tension-divider { width: 100%; height: 40px; }
+        section { padding: 70px 24px; }
+        .course-hero { padding: 130px 24px 70px; }
+        .hero-meta { gap: 24px; }
+        .instructor-block { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    }
+</style>
+```
+
+</head>
+<body>
+
+<div class="status-bar"></div>
+
+<nav>
+    <a href="index.html" class="logo">
+        <div class="logo-icon"></div>
+        Peter Johnson | Ayadee Foundation
+    </a>
+    <div class="nav-links" id="navLinks">
+        <a href="index.html#about">About</a>
+        <a href="index.html#capital">Capital</a>
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#fellowship">Fellowship</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="menu-toggle" id="menuToggle">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</nav>
+
+<!-- HERO -->
+
+<section class="course-hero">
+    <div class="container">
+        <span class="s-subtitle">Executive Education &bull; Ayadee Foundation</span>
+        <h1>Entrepreneurial Culture: Play &amp; Creativity</h1>
+        <p class="hero-lead">Cultivating human agency, original thought, and empathy in a world where generative automation is rapidly commoditizing content, analysis, and routine cognitive work.</p>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+            <a href="#enroll" class="btn">Request Enrollment</a>
+            <a href="index.html#programs" class="btn btn-outline" style="color:white !important; border-color: rgba(196,169,125,0.6);">All Programs &rarr;</a>
+        </div>
+        <div class="hero-meta">
+            <div class="hero-meta-item"><span>Format</span>Workshop or Seminar Series</div>
+            <div class="hero-meta-item"><span>Delivery</span>In-Person or Remote</div>
+            <div class="hero-meta-item"><span>Level</span>Leadership &amp; Innovation Teams</div>
+            <div class="hero-meta-item"><span>Duration</span>1&ndash;3 Days (customizable)</div>
+        </div>
+    </div>
+</section>
+
+<!-- THE PREMISE -->
+
+<section class="section-white">
+    <div class="container">
+        <span class="s-subtitle">The Human Frontier</span>
+        <h2 class="s-title">The Skills That Survive Automation Are Not Technical</h2>
+
+```
+    <div class="premise-block">
+        Generative AI has compressed the distance between an idea and a finished output to nearly zero. Any organization can now produce competent writing, functional code, polished visuals, and structured analysis on demand. The question is no longer who can produce. It is who can think originally enough that production matters.
+    </div>
+
+    <p style="margin-bottom:20px;">This shift has consequences that most leadership teams have not yet internalized. When the cost of generating competent output collapses, competence itself ceases to be a differentiator. What remains scarce are the capacities that machines cannot replicate: the ability to ask questions no one has framed before, to read emotional and cultural context with nuance, to hold creative tension long enough for something genuinely new to emerge, and to exercise judgment in conditions where data alone does not resolve ambiguity.</p>
+
+    <p>This program is built around a simple thesis: organizations that cultivate these capacities deliberately will outperform those that automate aggressively but creatively coast. The future belongs to institutions that treat human originality as infrastructure, not ornament.</p>
+</div>
+```
+
+</section>
+
+<!-- THE CENTRAL TENSION -->
+
+<section>
+    <div class="container">
+        <span class="s-subtitle">The Central Tension</span>
+        <h2 class="s-title">Efficiency vs. Originality</h2>
+        <p style="max-width:750px; margin-bottom:10px;">Every organization navigating generative AI faces the same underlying tension. The program teaches leaders to hold both sides simultaneously rather than default to one.</p>
+
+```
+    <div class="tension-grid">
+        <div class="tension-side tension-left">
+            <h4>The Automation Instinct</h4>
+            <p>Optimize, accelerate, scale. Reduce friction. Standardize outputs. Automate everything that can be automated. This instinct is rational, measurable, and rewarded by quarterly metrics.</p>
+        </div>
+        <div class="tension-divider">VS</div>
+        <div class="tension-side tension-right">
+            <h4>The Originality Imperative</h4>
+            <p>Slow down, question, diverge. Protect space for ambiguity. Tolerate inefficiency in service of insight. This imperative is harder to measure, slower to pay off, and essential for long-term relevance.</p>
+        </div>
+    </div>
+</div>
+```
+
+</section>
+
+<!-- PROGRAM MODULES -->
+
+<section class="section-white" id="modules">
+    <div class="container">
+        <span class="s-subtitle">Curriculum</span>
+        <h2 class="s-title">Program Modules</h2>
+
+```
+    <div class="module-card">
+        <span class="module-num">Module 01</span>
+        <h3>The Empathy Edge</h3>
+        <p>Defining what remains un-automatable. This module examines how human empathy, contextual awareness, and original framing become the highest-value capacities as AI commoditizes analytical and creative output. Participants map the specific points in their own value chains where human judgment still creates irreplaceable advantage, and identify where that advantage is eroding faster than their organizations recognize.</p>
+    </div>
+
+    <div class="module-card">
+        <span class="module-num">Module 02</span>
+        <h3>Play as Strategy</h3>
+        <p>Most organizations treat play as the opposite of work. This module reframes it as a strategic discipline. Participants explore how low-stakes experimentation, lateral thinking exercises, and structured "play" protocols unlock cognitive modes that analytical processes systematically suppress. The session includes a live design exercise where teams prototype solutions under deliberately playful constraints, producing outputs that structured brainstorming would never reach.</p>
+    </div>
+
+    <div class="module-card">
+        <span class="module-num">Module 03</span>
+        <h3>Resisting the Average Trap</h3>
+        <p>Generative AI produces outputs that are, by design, convergent. They gravitate toward the statistical center of their training data. Organizations that rely on AI augmentation without deliberately counterbalancing this tendency will find their communications, strategies, and products drifting toward an undifferentiated mean. This module provides frameworks for using machines to raise the floor while humans raise the ceiling, preserving institutional voice and strategic distinctiveness.</p>
+    </div>
+
+    <div class="module-card">
+        <span class="module-num">Module 04</span>
+        <h3>Cultivating Curiosity at Scale</h3>
+        <p>Curiosity is not a personality trait. It is an institutional condition that can be designed for or designed out. This module examines how organizational structures, incentive systems, and meeting cultures either nourish or extinguish the reflective practitioner. Participants leave with concrete protocols for building curiosity into team rhythms, performance conversations, and project workflows without sacrificing operational discipline.</p>
+    </div>
+
+    <div class="module-card">
+        <span class="module-num">Module 05</span>
+        <h3>Creative Friction and the Art of Productive Disagreement</h3>
+        <p>Original thinking rarely emerges from consensus. It emerges from well-managed tension between divergent perspectives. This module teaches leaders how to design for creative friction: structuring teams, conversations, and decision processes so that disagreement generates insight rather than dysfunction. Participants practice facilitation techniques drawn from design thinking, improvisational theater, and diplomatic negotiation.</p>
+    </div>
+
+    <div class="module-card">
+        <span class="module-num">Module 06</span>
+        <h3>Building a Culture of Originals</h3>
+        <p>The capstone module brings everything together into an organizational design challenge. Participants assess their own institution&rsquo;s cultural readiness for originality, identify the structural barriers that suppress it, and draft a concrete intervention plan. The deliverable is a 90-day roadmap for shifting their team or organization toward a culture where creative risk-taking is practiced, not just praised in values statements.</p>
+    </div>
+</div>
+```
+
+</section>
+
+<!-- OUTCOMES -->
+
+<section class="outcome-strip">
+    <div class="container">
+        <span class="s-subtitle" style="text-align:center; display:block;">Participant Outcomes</span>
+        <h2 class="s-title" style="color:white; text-align:center;">What Leaders Walk Away With</h2>
+        <div class="grid-3" style="margin-top:40px;">
+            <div class="outcome-item">
+                <span class="outcome-num">01</span>
+                <span class="outcome-label">A clear map of where human originality creates irreplaceable value in their organization, and where that advantage is at risk</span>
+            </div>
+            <div class="outcome-item">
+                <span class="outcome-num">02</span>
+                <span class="outcome-label">Concrete protocols for embedding play, curiosity, and creative friction into team rhythms without losing operational focus</span>
+            </div>
+            <div class="outcome-item">
+                <span class="outcome-num">03</span>
+                <span class="outcome-label">A 90-day intervention roadmap for shifting institutional culture toward originality as a practiced discipline</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AUDIENCE -->
+
+<section class="section-white">
+    <div class="container">
+        <div class="grid-2">
+            <div>
+                <span class="s-subtitle">Who This Is For</span>
+                <h2 class="s-title">Leaders at the Human Frontier</h2>
+                <p style="margin-bottom:20px;">This program is designed for leaders who sense that their organization&rsquo;s competitive position depends on something AI cannot provide, but who lack a language and a methodology for cultivating that something deliberately. It is especially relevant for teams that have already adopted generative AI and are beginning to notice the homogenizing effects on their output, culture, and strategic thinking.</p>
+                <p>Participants should arrive willing to experiment, to tolerate productive discomfort, and to examine their own assumptions about what creativity looks like inside an institutional setting.</p>
+            </div>
+            <div>
+                <h3 style="margin-bottom:20px;">Typical Participant Profiles</h3>
+                <div>
+                    <span class="audience-tag">Innovation Leads</span>
+                    <span class="audience-tag">Chief People Officers</span>
+                    <span class="audience-tag">Heads of Learning &amp; Development</span>
+                    <span class="audience-tag">Creative Directors</span>
+                    <span class="audience-tag">Startup Founders</span>
+                    <span class="audience-tag">R&amp;D Leadership</span>
+                    <span class="audience-tag">Strategy Leads</span>
+                    <span class="audience-tag">Social Entrepreneurs</span>
+                </div>
+                <div style="background:var(--light); padding:24px; border-radius:6px; margin-top:24px;">
+                    <p style="font-size:0.9rem; color:var(--text);"><strong>Delivery options:</strong> Available as a 1&ndash;3 day intensive workshop, a multi-week seminar series, or a keynote with interactive breakout sessions. Particularly effective when delivered to intact leadership teams who share an organizational context and can implement changes together.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INSTRUCTOR -->
+
+<section>
+    <div class="container">
+        <span class="s-subtitle">Lead Instructor</span>
+        <h2 class="s-title">Peter Johnson</h2>
+        <div class="instructor-block">
+            <div class="instructor-avatar">PJ</div>
+            <div>
+                <p style="margin-bottom:16px; font-size:1.05rem;">Peter Johnson has spent two decades working at the intersection of institutional design, human development, and emerging technology across 34+ countries. His approach to creativity and culture draws on an unusual combination of experiences: diplomatic negotiation, cooperative governance research, entrepreneurial education in frontier markets, and executive advisory for organizations navigating systemic change.</p>
+
+```
+            <p style="margin-bottom:16px;">He has taught over 800 students at AACSB/AMBA-accredited institutions and delivered executive education programs at Humboldt University Berlin, the Mediterranean School of Business, and universities across Latin America and East Africa. His work consistently returns to the same question: how do institutions create the conditions for original human contribution when the surrounding environment rewards conformity and automation?</p>
+
+            <p>Peter is a Finance Fellow with Scale AI&rsquo;s Human Frontier Collective, a PhD candidate at the University of the Basque Country, and a former U.S. Foreign Service Officer. He is a Professional Member of the Association of Professional Futurists and serves on the YPO Social Impact Network Executive Committee.</p>
+        </div>
+    </div>
+</div>
+```
+
+</section>
+
+<!-- ENROLLMENT -->
+
+<section id="enroll" class="section-white">
+    <div class="container" style="max-width:700px;">
+        <h2 class="s-title" style="text-align:center;">Request Enrollment</h2>
+        <p style="text-align:center; margin-bottom:35px; color:var(--text);">Describe your team, your context, and what you are hoping to shift. We will respond with a tailored proposal within five business days.</p>
+        <form action="https://formspree.io/f/meerbvzp" method="POST">
+            <input type="hidden" name="_subject" value="Play &amp; Creativity Course Inquiry">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <input type="text" name="organization" placeholder="Organization &amp; Role">
+            <select name="format" required>
+                <option value="">Preferred Format</option>
+                <option value="Intensive">1&ndash;3 Day Intensive Workshop</option>
+                <option value="Seminar">Multi-Week Seminar Series</option>
+                <option value="Keynote">Keynote with Interactive Breakouts</option>
+                <option value="Custom">Custom Module (integrated into existing program)</option>
+            </select>
+            <textarea name="message" placeholder="Tell us about your team, the creative challenges you are facing, and what a successful outcome would look like for your organization." style="min-height:140px;"></textarea>
+            <button type="submit" class="btn" style="width:100%;">Submit Inquiry</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p style="margin-bottom:8px;"><a href="index.html" style="color:#888; font-weight:600;">Home</a> &nbsp;&middot;&nbsp; <a href="index.html#programs" style="color:#888; font-weight:600;">All Programs</a> &nbsp;&middot;&nbsp; <a href="index.html#contact" style="color:#888; font-weight:600;">Contact</a></p>
+    <p>&copy; 2026 Peter Johnson | Ayadee Foundation</p>
+</footer>
+
+<script>
+    document.getElementById('menuToggle').addEventListener('click', function() {
+        document.getElementById('navLinks').classList.toggle('open');
+    });
+</script>
+
+</body>
+</html>
