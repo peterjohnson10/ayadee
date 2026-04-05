@@ -1,220 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ayadee Foundation | Strategic Foresight</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --primary: #C4A97D;
-      --dark: #111827;
-      --text: #374151;
-      --light: #F8F9FB;
-      --white: #FFFFFF;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayadee Foundation | Strategic Foresight, Education & Advisory</title>
+    <style>
+        :root {
+            --gold: #C4A97D;
+            --dark: #111827;
+            --text: #374151;
+            --light: #F8F9FB;
+            --white: #FFFFFF;
+        }
 
-    /* Safety bar to prove the page is loading */
-    .loading-check { height: 4px; background: var(--primary); width: 100%; position: fixed; top: 0; z-index: 9999; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background: var(--light); 
+            color: var(--dark); 
+            line-height: 1.7;
+            margin: 0;
+            display: block !important;
+        }
+        
+        strong, b { font-weight: 700; }
+        a { color: var(--gold); text-decoration: none; transition: 0.3s; }
+        a:hover { opacity: 0.8; }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    body {
-      font-family: 'Source Sans 3', sans-serif;
-      background-color: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
-      margin: 0;
-      display: block !important;
-    }
+        /* NAVIGATION */
+        nav { 
+            background: white; 
+            height: 70px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 0 40px;
+            border-bottom: 1px solid #E5E7EB;
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+        }
+        .logo { font-weight: 800; font-size: 1.1rem; color: var(--dark); letter-spacing: 0.5px; text-transform: uppercase; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { font-size: 0.85rem; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.5px; }
 
-    strong, b { font-weight: 700; }
-    a { color: var(--primary); text-decoration: none; }
+        @media (max-width: 950px) {
+            .nav-links { display: none; }
+            nav { padding: 0 20px; }
+        }
 
-    /* NAVIGATION */
-    .nav {
-      position: fixed;
-      top: 4px; left: 0; right: 0;
-      height: 70px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 40px;
-      background: white;
-      border-bottom: 1px solid #EEE;
-      z-index: 1000;
-    }
+        /* SECTIONS */
+        section { padding: 100px 24px; scroll-margin-top: 80px; }
+        .section-white { background: white; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        
+        .s-subtitle { color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.8rem; margin-bottom: 12px; display: block; }
+        .s-title { font-size: clamp(1.8rem, 5vw, 2.6rem); margin-bottom: 25px; line-height: 1.2; font-weight: 800; }
 
-    .nav-logo { 
-      font-family: 'Playfair Display', serif; 
-      font-weight: 700; 
-      display: flex; 
-      align-items: center; 
-    }
+        /* HERO */
+        .hero { padding: 160px 24px 100px; text-align: center; background: white; border-bottom: 1px solid #EEE; }
+        .hero h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); margin-bottom: 20px; font-weight: 800; max-width: 950px; margin-left: auto; margin-right: auto; }
+        .hero-sub { font-size: 1.2rem; color: var(--text); max-width: 750px; margin: 0 auto 40px; }
 
-    .nav-links { display: flex; gap: 20px; }
-    .nav-links a { color: var(--text); font-size: 0.9rem; font-weight: 600; }
+        .btn { padding: 16px 32px; background: var(--gold); color: white !important; font-weight: 700; border-radius: 4px; display: inline-block; border: none; font-size: 1rem; cursor: pointer; }
 
-    /* MOBILE MENU */
-    .menu-toggle { display: none; cursor: pointer; flex-direction: column; gap: 4px; }
-    .menu-toggle div { width: 22px; height: 2px; background: var(--dark); }
+        .grid-2 { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; }
+        .card { background: white; padding: 30px; margin-bottom: 20px; border-radius: 6px; border: 1px solid #E5E7EB; }
+        .card h3 { margin-bottom: 12px; font-size: 1.25rem; font-weight: 800; }
 
-    @media (max-width: 950px) {
-      .nav-links { display: none; }
-      .menu-toggle { display: flex; }
-      .nav { padding: 0 20px; }
-    }
+        ul { list-style: none; }
+        li { position: relative; padding-left: 25px; margin-bottom: 12px; }
+        li::before { content: "•"; color: var(--gold); position: absolute; left: 0; font-weight: 900; }
 
-    /* SECTIONS */
-    .section { padding: 80px 20px; }
-    .section-white { background: white; }
-    .inner { max-width: 1000px; margin: 0 auto; }
+        /* FORM */
+        form { background: white; padding: 40px; border-radius: 8px; border: 1px solid #E5E7EB; }
+        form input, form select, form textarea { width: 100%; padding: 14px; margin-bottom: 20px; border: 1px solid #DDD; border-radius: 4px; font-size: 1rem; font-family: inherit; }
 
-    .hero { text-align: center; padding: 140px 20px 80px; background: white; }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; }
-    
-    .btn {
-      padding: 14px 28px;
-      font-weight: 700;
-      border-radius: 4px;
-      display: inline-block;
-      cursor: pointer;
-      border: none;
-      font-size: 1rem;
-    }
-    .btn-primary { background: var(--primary); color: white !important; }
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            section { padding: 70px 24px; }
+        }
 
-    .card { border: 1px solid #EEE; padding: 25px; margin-bottom: 20px; border-radius: 6px; background: white; }
-    .card-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; display: block; margin-bottom: 10px; }
-
-    .grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; }
-    
-    @media (max-width: 768px) {
-      .grid { grid-template-columns: 1fr; }
-    }
-
-    form input, form select, form textarea { width: 100%; padding: 14px; margin-bottom: 15px; border: 1px solid #DDD; border-radius: 4px; font-family: inherit; }
-  </style>
+        footer { text-align: center; padding: 60px 24px; border-top: 1px solid #EEE; color: #888; background: white; font-size: 0.9rem; }
+    </style>
 </head>
 <body>
 
-<div class="loading-check"></div>
-
-<nav class="nav">
-  <div class="nav-logo">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C4A97D" stroke-width="2" style="margin-right:10px;">
-      <circle cx="12" cy="12" r="10"></circle>
-      <path d="M16 8l-2 6-6 2 2-6z"></path>
-    </svg>
-    Peter Johnson | Ayadee Foundation
-  </div>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#capital">Capital</a>
-    <a href="#programs">Programs</a>
-    <a href="#fellowship">Fellowship</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div class="menu-toggle"><div></div><div></div><div></div></div>
+<nav>
+    <div class="logo">Ayadee Foundation</div>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#capital">Capital</a>
+        <a href="#programs">Programs</a>
+        <a href="#fellowship">Fellowship</a>
+        <a href="#contact">Contact</a>
+    </div>
 </nav>
 
 <section class="hero">
-  <p style="color:var(--primary); font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px;">Strategic Foresight • AI Governance • DAO Research</p>
-  <h1>Education & Advisory for Institutional Change</h1>
-  <p style="max-width:700px; margin: 0 auto 30px; font-size:1.2rem; color:var(--text);">Bridging ML research, cooperative governance models, and global policy to help leaders navigate systemic transformation.</p>
-  <a href="#contact" class="btn btn-primary">Request Advisory</a>
-</section>
-
-<section class="section section-white" id="about">
-  <div class="inner grid">
-    <div>
-      <h2 style="font-family:'Playfair Display', serif; font-size:2rem; margin-bottom:20px;">Bridging Research & Global Strategy</h2>
-      <p style="margin-bottom:20px;">As a <b>Finance Fellow with Scale AI</b>, I work with ML research teams on how frontier models understand financial systems. This practical work informs my PhD research on <b>DAOs</b> and cooperative governance at the University of the Basque Country.</p>
-      <p>A former <b>U.S. Foreign Service Officer</b>, I lead a team designing strategies for emerging technologies for multilateral organizations like the <b>FAO and UNDP</b>.</p>
+    <div class="container">
+        <span class="s-subtitle">Strategic Foresight • AI Governance • DAO Research</span>
+        <h1>Education & Advisory for Institutional Change</h1>
+        <p class="hero-sub">Bridging ML research, cooperative governance models, and global policy to help leaders navigate systemic transformation.</p>
+        <div style="display:flex; gap:16px; justify-content:center; flex-wrap: wrap;">
+            <a href="#contact" class="btn">Request Advisory</a>
+            <a href="#programs" class="btn" style="background:white; border:2px solid var(--gold); color:var(--dark) !important;">View Programs</a>
+        </div>
     </div>
-    <div style="background:var(--light); padding:25px; border-radius:8px;">
-      <h4 style="margin-bottom:15px; font-family:'Playfair Display', serif;">Institutional Background</h4>
-      <ul style="list-style:none;">
-        <li style="margin-bottom:10px;">• Johns Hopkins SAIS (MA)</li>
-        <li style="margin-bottom:10px;">• YPO Social Impact Committee</li>
-        <li style="margin-bottom:10px;">• Bretton Woods Committee</li>
-        <li style="margin-bottom:10px;">• European Commission Advisor</li>
-      </ul>
+</section>
+
+<section id="about" class="section-white">
+    <div class="container grid-2">
+        <div>
+            <span class="s-subtitle">Institutional Perspective</span>
+            <h2 class="s-title">Bridging Research & Global Strategy</h2>
+            <p style="margin-bottom:20px;">The Ayadee Foundation operates at the intersection of machine learning research and international policy. Our work is driven by a deep understanding of how frontier AI models intersect with financial systems and institutional governance.</p>
+            <p>Our initiatives are led by <strong>Peter Johnson</strong>, a Finance Fellow with Scale AI and PhD researcher in Decentralized Autonomous Organizations (DAOs). A former <strong>U.S. Foreign Service Officer</strong>, Johnson brings a career of managing global coalitions for the <b>FAO, UNDP, and the European Commission</b> to the Foundation's strategic mission.</p>
+        </div>
+        <div style="background:var(--light); padding:35px; border-radius:8px;">
+            <h3 style="margin-bottom:20px;">Foundation Expertise</h3>
+            <ul>
+                <li>Strategic Foresight & Signal Detection</li>
+                <li>AI Governance Architecture</li>
+                <li>FinTech Policy & Digital Identity</li>
+                <li>DAO & Cooperative Research</li>
+            </ul>
+            <a href="https://linkedin.com/in/peterjohnson" target="_blank" style="font-weight:700; margin-top:15px; display:inline-block;">Foundation Leadership Profile →</a>
+        </div>
     </div>
-  </div>
 </section>
 
-<section class="section" id="capital" style="background:#111827; color:white;">
-  <div class="inner">
-    <h2 style="font-family:'Playfair Display', serif; color:var(--primary); font-size:2rem; margin-bottom:20px;">Strategic Capital & Investment Advisory</h2>
-    <div class="grid">
-      <div>
-        <p style="margin-bottom:20px; opacity:0.9;">Through <strong>Ayadee Holdings</strong>, we translate strategic foresight into action. We maintain a concentrated portfolio of direct investments at the intersection of frontier technology and institutional infrastructure.</p>
-        <p style="opacity:0.9;">We prioritize "Venture Architecture"—backing projects where our expertise in <strong>AI Governance</strong> provides a clear competitive advantage.</p>
-      </div>
-      <div style="border: 1px solid var(--primary); padding:20px; border-radius:6px; background:rgba(196,169,125,0.1);">
-        <h4 style="color:var(--primary); margin-bottom:10px;">Allocation Strategy</h4>
-        <p style="font-size:0.95rem;">We provide bespoke due diligence and allocation strategy for family offices and institutional funds navigating high-complexity frontier markets.</p>
-      </div>
+<section id="capital" style="background: var(--dark); color: white;">
+    <div class="container">
+        <span class="s-subtitle" style="color:var(--gold);">Ayadee Holdings</span>
+        <h2 class="s-title" style="color:white;">Strategic Capital & Investment Advisory</h2>
+        <div class="grid-2">
+            <div>
+                <p style="margin-bottom: 20px; opacity: 0.9;">Through <strong>Ayadee Holdings</strong>, we translate strategic foresight into action. We maintain a concentrated portfolio of direct investments at the intersection of frontier technology and institutional infrastructure.</p>
+                <p style="opacity: 0.9;">We prioritize <strong>"Venture Architecture"</strong>—backing projects where our technical expertise provides a clear competitive advantage and a de-risked path to scale.</p>
+            </div>
+            <div style="border: 1px solid var(--gold); padding:30px; border-radius:8px; background:rgba(196,169,125,0.1);">
+                <h4 style="color:var(--gold); margin-bottom:12px;">Investment Advisory</h4>
+                <p style="font-size:0.95rem; opacity:0.9;">We provide bespoke due diligence and allocation strategy for family offices and institutional funds navigating high-complexity frontier markets where technical foresight is a prerequisite for alpha.</p>
+                <a href="#contact" style="color:var(--gold); font-weight:700; display:block; margin-top:15px;">Inquire About Advisory →</a>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
-<section class="section section-white" id="programs">
-  <div class="inner">
-    <h2 style="font-family:'Playfair Display', serif; font-size:2rem; margin-bottom:30px;">Institutional Capacity & Leadership</h2>
-    <div class="card"><a href="foresight.html" class="card-title">Strategic Foresight for the Digital Age →</a><p>Horizon scanning and scenario development tools for resilient strategy.</p></div>
-    <div class="card"><a href="ai-gov.html" class="card-title">AI Governance for Global Institutions →</a><p>Risk classification and governance architecture for frontier models.</p></div>
-    <div class="card"><a href="daos.html" class="card-title">DAOs & Cooperative Governance →</a><p>Bridging cooperative history with decentralized coordination.</p></div>
-    <div class="card"><a href="creativity.html" class="card-title">Entrepreneurial Culture: Play & Creativity →</a><p>Cultivating human original thought in an AI-saturated environment.</p></div>
-    <div class="card"><a href="social-ent.html" class="card-title">Social Entrepreneurship & Innovation →</a><p>Designing ventures for systemic change and global impact.</p></div>
-  </div>
-</section>
-
-<section class="section" id="fellowship">
-  <div class="inner">
-    <h2 style="font-family:'Playfair Display', serif; font-size:2rem; margin-bottom:20px;">Architects of the Future Fellowship</h2>
-    <p style="margin-bottom:30px;">A selective program for emerging leaders working at the intersection of tech, governance, and global impact.</p>
-    
-    <div class="card">
-      <b>Program Structure:</b> 6-month, part-time fellowship (8–12 hours/week), remote-first. Fellows contribute to <b>real-world advisory projects in AI governance</b>.
+<section id="programs" class="section-white">
+    <div class="container">
+        <span class="s-subtitle">Executive Education</span>
+        <h2 class="s-title">Institutional Capacity & Leadership</h2>
+        <div class="card"><h3><a href="foresight.html">Strategic Foresight for the Digital Age →</a></h3><p>Equipping leaders with horizon scanning and scenario development tools for resilient strategy.</p></div>
+        <div class="card"><h3><a href="ai-gov.html">AI Governance for Global Institutions →</a></h3><p>A practitioner-built framework for risk classification, governance architecture, and implementation.</p></div>
+        <div class="card"><h3><a href="daos.html">DAOs & Cooperative Governance →</a></h3><p>How decentralized coordination and 180 years of cooperative history inform the next generation of design.</p></div>
+        <div class="card"><h3><a href="creativity.html">Entrepreneurial Culture: Play & Creativity →</a></h3><p>Cultivating human original thought and reflective thinking in an AI-saturated environment.</p></div>
+        <div class="card"><h3><a href="social-ent.html">Social Entrepreneurship & Innovation →</a></h3><p>Designing ventures for systemic change. (Lead Instructors: Peter Johnson & Andrew Mack)</p></div>
+        <div style="text-align:center; margin-top:30px;"><a href="#contact" class="btn">Inquire About Enrollment</a></div>
     </div>
-    
-    <div class="card">
-      <b>Research Focus:</b>
-      <ul style="margin-top:10px;">
-        <li>• AI Governance frameworks and risk mitigation</li>
-        <li>• Strategic Foresight modeling for digital ecosystems</li>
-        <li>• Digital Economy and FinTech policy</li>
-        <li>• Institutional Design and participatory oversight</li>
-      </ul>
+</section>
+
+<section id="fellowship">
+    <div class="container">
+        <span class="s-subtitle">Knowledge Production</span>
+        <h2 class="s-title">Architects of the Future Fellowship</h2>
+        <p style="margin-bottom:40px; font-size:1.1rem;">A selective program for emerging leaders working at the intersection of technology, governance, and global impact. The fellowship emphasizes <strong>knowledge production, applied research, and think tank–style contributions</strong>.</p>
+        
+        <div class="grid-2">
+            <div class="card">
+                <h3>Program Structure</h3>
+                <p>6-month, part-time fellowship (8–12 hours/week), remote-first. Fellows contribute directly to research, program development, and <b>real-world advisory projects in AI governance</b>.</p>
+            </div>
+            <div class="card">
+                <h3>Applied Research Focus</h3>
+                <ul style="font-size:0.95rem;">
+                    <li><strong>AI Governance:</strong> Policy frameworks and risk mitigation for frontier models.</li>
+                    <li><strong>Strategic Foresight:</strong> Building scenario models for digital ecosystems.</li>
+                    <li><strong>Digital Economy:</strong> Researching fintech policy and digital identity systems.</li>
+                    <li><strong>Institutional Design:</strong> How DAOs enable participatory oversight.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div style="text-align:center; margin-top:40px;">
+            <a href="https://docs.google.com/forms/d/1yZqbRmObBTzX5wBc8BQKO8omUsdWykN5yPQSPbZjj0g/edit" target="_blank" class="btn">Apply for Fellowship</a>
+        </div>
     </div>
-    
-    <div style="text-align:center;"><a href="https://docs.google.com/forms/d/1yZqbRmObBTzX5wBc8BQKO8omUsdWykN5yPQSPbZjj0g/edit" target="_blank" class="btn btn-primary">Apply for Fellowship</a></div>
-  </div>
 </section>
 
-<section class="section section-white" id="contact">
-  <div class="inner" style="max-width:600px;">
-    <h2 style="font-family:'Playfair Display', serif; text-align:center; margin-bottom:30px;">Start the Conversation</h2>
-    <form action="https://formspree.io/f/meerbvzp" method="POST">
-      <input type="text" name="name" placeholder="Name" required />
-      <input type="email" name="email" placeholder="Email" required />
-      <select name="inquiry" required>
-        <option value="">Inquiry Type</option>
-        <option value="Advisory">Strategic Advisory</option>
-        <option value="Investment">Strategic Capital</option>
-        <option value="Education">Education</option>
-      </select>
-      <textarea name="message" placeholder="Message" required style="min-height:120px;"></textarea>
-      <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
-    </form>
-  </div>
-</section>
-
-<footer style="text-align:center; padding:40px; background:white; border-top:1px solid #EEE; color:#888; font-size:0.9rem;">
-  © 2026 Peter Johnson | Ayadee Foundation
-</footer>
-
-</body>
-</html>
+<section id="contact" class="section-white">
+    <div class="container" style="max-width:700px;">
+        <h2 class="s-title" style="text-align:center;">Start the Conversation</h2>
+        <form action="https://formspree.io/f/meerbvzp" method="POST">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                <input type="text" name="name" placeholder="Name" required />
+                <input type="email" name="email" placeholder="Email" required />
+            </div>
+            <input type="text" name="subject" placeholder="Subject" required />
+            <select name="type" required>
+                <option value="">Inquiry Type</option>
+                <option value="Advisory">Strategic Advisory / Governance</option>
+                <option value="Investment">Strategic Capital / Investment Advisory</option>
+                <option
