@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Foresight for the Digital Age | Ayadee Foundation</title>
+    <style>
+        :root {
+            --gold: #C4A97D;
+            --dark: #111827;
+            --text: #374151;
+            --light: #F8F9FB;
+            --white: #FFFFFF;
+        }
+        .status-bar { height: 4px; background: var(--gold); width: 100%; position: fixed; top: 0; z-index: 9999; }
+
+```
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        background: var(--light);
+        color: var(--dark);
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    strong, b { font-weight: 700; font-size: inherit; }
+    a { color: var(--gold); text-decoration: none; transition: 0.3s; }
+    a:hover { opacity: 0.8; }
+
+    /* NAVIGATION */
+    nav {
+        background: white;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        border-bottom: 1px solid #E5E7EB;
+        position: fixed; top: 4px; left: 0; right: 0; z-index: 1000;
+    }
+    .logo a { color: var(--dark); }
+    .logo { font-weight: 800; font-size: 1.1rem; color: var(--dark); display: flex; align-items: center; }
+    .logo-icon { width: 20px; height: 20px; border: 2px solid var(--gold); border-radius: 50%; margin-right: 12px; position: relative; }
+    .logo-icon::after { content: ''; position: absolute; top: 4px; left: 9px; width: 2px; height: 8px; background: var(--gold); transform: rotate(45deg); }
+
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+
+    .menu-toggle { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .menu-toggle div { width: 25px; height: 2px; background: var(--dark); }
+
+    .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 20px 40px;
+        border-bottom: 1px solid #E5E7EB;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    /* LAYOUT */
+    section { padding: 100px 24px; scroll-margin-top: 80px; }
+    .section-white { background: white; }
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    .s-subtitle { color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 10px; display: block; }
+    .s-title { font-size: clamp(1.8rem, 5vw, 2.6rem); margin-bottom: 25px; line-height: 1.2; font-weight: 800; }
+
+    .btn { padding: 16px 32px; background: var(--gold); color: white !important; font-weight: 700; border-radius: 4px; display: inline-block; border: none; font-size: 1rem; cursor: pointer; }
+    .btn-outline { background: transparent; border: 2px solid var(--gold); color: var(--dark) !important; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; }
+    .card { background: white; padding: 30px; margin-bottom: 20px; border-radius: 6px; border: 1px solid #E5E7EB; }
+    .card h3 { margin-bottom: 12px; font-size: 1.3rem; }
+
+    ul { list-style: none; }
+    li { position: relative; padding-left: 25px; margin-bottom: 12px; }
+    li::before { content: "\2022"; color: var(--gold); position: absolute; left: 0; font-weight: 900; }
+
+    /* COURSE HERO */
+    .course-hero {
+        padding: 160px 24px 90px;
+        background: var(--dark);
+        color: white;
+    }
+    .course-hero .s-subtitle { margin-bottom: 16px; }
+    .course-hero h1 {
+        font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+        margin-bottom: 24px;
+        font-weight: 800;
+        max-width: 850px;
+        line-height: 1.15;
+    }
+    .course-hero .hero-lead {
+        font-size: 1.2rem;
+        opacity: 0.88;
+        max-width: 700px;
+        margin-bottom: 40px;
+        line-height: 1.75;
+    }
+    .hero-meta {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(196,169,125,0.3);
+    }
+    .hero-meta-item { font-size: 0.9rem; }
+    .hero-meta-item span { display: block; color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.75rem; margin-bottom: 4px; }
+
+    /* PREMISE */
+    .premise-block {
+        background: white;
+        border-left: 4px solid var(--gold);
+        padding: 30px 35px;
+        border-radius: 0 6px 6px 0;
+        margin-bottom: 30px;
+        font-size: 1.05rem;
+    }
+
+    /* MODULE CARD */
+    .module-card {
+        background: white;
+        border: 1px solid #E5E7EB;
+        border-radius: 6px;
+        padding: 32px;
+        margin-bottom: 24px;
+        position: relative;
+    }
+    .module-card .module-num {
+        color: var(--gold);
+        font-weight: 800;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 10px;
+        display: block;
+    }
+    .module-card h3 { font-size: 1.25rem; margin-bottom: 10px; }
+    .module-card p { color: var(--text); font-size: 0.95rem; }
+
+    /* SHIFT FRAMEWORK */
+    .shift-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 35px; }
+    .shift-letter {
+        text-align: center;
+        padding: 28px 14px;
+        border-radius: 6px;
+        border: 1px solid #E5E7EB;
+        background: white;
+    }
+    .shift-letter .letter {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--gold);
+        display: block;
+        margin-bottom: 8px;
+        line-height: 1;
+    }
+    .shift-letter .label {
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--dark);
+        display: block;
+        margin-bottom: 6px;
+    }
+    .shift-letter .desc {
+        font-size: 0.8rem;
+        color: var(--text);
+        line-height: 1.4;
+    }
+
+    /* OUTCOMES STRIP */
+    .outcome-strip {
+        background: var(--dark);
+        color: white;
+    }
+    .outcome-item { text-align: center; padding: 10px; }
+    .outcome-num { font-size: 2.8rem; font-weight: 800; color: var(--gold); display: block; line-height: 1; margin-bottom: 8px; }
+    .outcome-label { font-size: 0.9rem; opacity: 0.85; }
+
+    /* AUDIENCE */
+    .audience-tag {
+        display: inline-block;
+        padding: 8px 18px;
+        border: 1px solid #E5E7EB;
+        border-radius: 100px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        margin: 0 8px 12px 0;
+        color: var(--text);
+    }
+
+    /* INSTRUCTOR */
+    .instructor-block {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 35px;
+        align-items: start;
+    }
+    .instructor-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: var(--dark);
+        border: 3px solid var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--gold);
+    }
+
+    /* FORM */
+    form { background: white; padding: 40px; border-radius: 8px; border: 1px solid #E5E7EB; }
+    form input, form select, form textarea { width: 100%; padding: 14px; margin-bottom: 20px; border: 1px solid #DDD; border-radius: 4px; font-size: 1rem; font-family: inherit; }
+
+    footer { text-align: center; padding: 60px 24px; border-top: 1px solid #EEE; color: #888; background: white; }
+
+    @media (max-width: 950px) {
+        .nav-links { display: none; }
+        .menu-toggle { display: flex; }
+        .grid-2, .grid-3 { grid-template-columns: 1fr; }
+        .shift-grid { grid-template-columns: repeat(2, 1fr); }
+        .shift-grid > :last-child { grid-column: 1 / -1; }
+        section { padding: 70px 24px; }
+        .course-hero { padding: 130px 24px 70px; }
+        .hero-meta { gap: 24px; }
+        .instructor-block { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    }
+
+    @media (max-width: 500px) {
+        .shift-grid { grid-template-columns: 1fr; }
+        .shift-grid > :last-child { grid-column: auto; }
+    }
+</style>
+```
+
+</head>
+<body>
+
+<div class="status-bar"></div>
+
+<nav>
+    <a href="index.html" class="logo">
+        <div class="logo-icon"></div>
+        Peter Johnson | Ayadee Foundation
+    </a>
+    <div class="nav-links" id="navLinks">
+        <a href="index.html#about">About</a>
+        <a href="index.html#capital">Capital</a>
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#fellowship">Fellowship</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="menu-toggle" id="menuToggle">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</nav>
+
+<!-- HERO -->
+
+<section class="course-hero">
+    <div class="container">
+        <span class="s-subtitle">Executive Education &bull; Ayadee Foundation</span>
+        <h1>Strategic Foresight for the Digital Age</h1>
+        <p class="hero-lead">A methodology for senior leaders to detect weak signals, scan horizons, and build resilient strategies in the face of frontier AI and systemic disruption.</p>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+            <a href="#enroll" class="btn">Request Enrollment</a>
+            <a href="index.html#programs" class="btn btn-outline" style="color:white !important; border-color: rgba(196,169,125,0.6);">All Programs &rarr;</a>
+        </div>
+        <div class="hero-meta">
+            <div class="hero-meta-item"><span>Format</span>Intensive Workshop or Multi-Session</div>
+            <div class="hero-meta-item"><span>Delivery</span>In-Person or Remote</div>
+            <div class="hero-meta-item"><span>Level</span>C-Suite &amp; Senior Leadership</div>
+            <div class="hero-meta-item"><span>Duration</span>1&ndash;3 Days (customizable)</div>
+        </div>
+    </div>
+</section>
+
+<!-- THE PREMISE -->
+
+<section class="section-white">
+    <div class="container">
+        <span class="s-subtitle">The Premise</span>
+        <h2 class="s-title">Strategy Built for Uncertainty</h2>
+
+```
+    <div class="premise-block">
+        Most institutional strategy still assumes a knowable future. It extrapolates from recent performance, benchmarks against peers, and builds three-year plans as though the operating environment will hold still. That assumption is now a liability.
+    </div>
+
+    <p style="margin-bottom:20px;">Frontier AI, shifting geopolitical blocs, and accelerating ecological constraints are not discrete risks to be managed in isolation. They are interconnected drivers of systemic change that demand a fundamentally different approach to strategic thinking. The organizations that thrive in this environment will not be the ones with the best predictions. They will be the ones with the sharpest peripheral vision, the fastest capacity to reframe, and the discipline to act on early evidence rather than late confirmation.</p>
+
+    <p>This program equips leaders with that capacity. It introduces a structured, repeatable methodology for scanning the horizon, interpreting weak signals, and stress-testing strategic assumptions against plausible futures that most planning processes never consider.</p>
+</div>
+```
+
+</section>
+
+<!-- SHIFT METHODOLOGY -->
+
+<section>
+    <div class="container">
+        <span class="s-subtitle">Core Framework</span>
+        <h2 class="s-title">The SHIFT Methodology</h2>
+        <p style="max-width:750px; margin-bottom:10px;">Every module in this program is built around <strong>SHIFT</strong>, a five-stage foresight methodology developed through two decades of practice across 34+ countries, refined through work with the European Commission, UNDP, and Fortune 500 boards.</p>
+
+```
+    <div class="shift-grid">
+        <div class="shift-letter">
+            <span class="letter">S</span>
+            <span class="label">Scan</span>
+            <span class="desc">Systematic detection of weak signals across technology, policy, and culture</span>
+        </div>
+        <div class="shift-letter">
+            <span class="letter">H</span>
+            <span class="label">Horizon</span>
+            <span class="desc">Mapping change across near, mid, and long-range time horizons</span>
+        </div>
+        <div class="shift-letter">
+            <span class="letter">I</span>
+            <span class="label">Interpret</span>
+            <span class="desc">Sense-making through cross-domain analysis and pattern recognition</span>
+        </div>
+        <div class="shift-letter">
+            <span class="letter">F</span>
+            <span class="label">Frame</span>
+            <span class="desc">Constructing plausible scenarios and testing strategic assumptions</span>
+        </div>
+        <div class="shift-letter">
+            <span class="letter">T</span>
+            <span class="label">Transform</span>
+            <span class="desc">Embedding adaptive capacity into governance, culture, and decision-making</span>
+        </div>
+    </div>
+</div>
+```
+
+</section>
+
+<!-- PROGRAM MODULES -->
+
+<section class="section-white" id="modules">
+    <div class="container">
+        <span class="s-subtitle">Curriculum</span>
+        <h2 class="s-title">Program Modules</h2>
+
+```
+    <div class="module-card">
+        <span class="module-num">Module 01</span>
+        <h3>Weak Signal Detection &amp; Environmental Scanning</h3>
+        <p>How to build a structured scanning practice that captures emerging shifts in technology, regulation, and market behavior before they reach mainstream analysis. Participants learn to distinguish noise from signal and develop organizational routines for continuous environmental awareness.</p>
+    </div>
+
+    <div class="module-card">
+        <span class="module-num">Module 02</span>
+        <h3>Three Horizons: Mapping the Pace of Change</h3>
+        <p>An applied session using the Three Horizons framework to map how current systems are declining, how transitional innovations are emerging, and where transformative possibilities are taking shape. Leaders leave with a visual map of their own industry&rsquo;s trajectory across all three time horizons.</p>
+    </div>
+
+    <div class="module-card">
+        <span class="module-num">Module 03</span>
+        <h3>Scenario Architecture &amp; Stress Testing</h3>
+        <p>Building rigorous, internally consistent scenarios that challenge organizational assumptions. This is not about predicting the future. It is about rehearsing decisions under conditions that leadership teams have never been forced to consider, from regulatory shocks to emergent competitive landscapes driven by autonomous systems.</p>
+    </div>
+
+    <div class="module-card">
+        <span class="module-num">Module 04</span>
+        <h3>AI as a Systemic Variable</h3>
+        <p>A practitioner-level overview of how frontier AI models are reshaping value chains, labor markets, institutional trust, and competitive dynamics. This module moves beyond the hype cycle to examine second- and third-order effects that most technology briefings overlook entirely.</p>
+    </div>
+
+    <div class="module-card">
+        <span class="module-num">Module 05</span>
+        <h3>Adaptive Strategy &amp; Institutional Resilience</h3>
+        <p>Translating foresight into governance. Participants design concrete mechanisms for embedding adaptive capacity into their own organizations: decision triggers, option-creating investments, portfolio-level hedging, and the cultural conditions required for an institution to act early rather than react late.</p>
+    </div>
+
+    <div class="module-card">
+        <span class="module-num">Module 06</span>
+        <h3>Capstone: Live Strategic Foresight Exercise</h3>
+        <p>A facilitated, real-time foresight sprint using participants&rsquo; own strategic challenges. Teams apply the full SHIFT methodology to produce scenario narratives, identify strategic options, and present board-ready recommendations. The capstone is designed to be immediately transferable to the participant&rsquo;s home organization.</p>
+    </div>
+</div>
+```
+
+</section>
+
+<!-- OUTCOMES -->
+
+<section class="outcome-strip">
+    <div class="container">
+        <span class="s-subtitle" style="text-align:center; display:block;">Participant Outcomes</span>
+        <h2 class="s-title" style="color:white; text-align:center;">What Leaders Walk Away With</h2>
+        <div class="grid-3" style="margin-top:40px;">
+            <div class="outcome-item">
+                <span class="outcome-num">01</span>
+                <span class="outcome-label">A repeatable foresight methodology they can deploy within their own leadership team, without external facilitators</span>
+            </div>
+            <div class="outcome-item">
+                <span class="outcome-num">02</span>
+                <span class="outcome-label">A portfolio of plausible scenarios stress-tested against their own strategic context and industry</span>
+            </div>
+            <div class="outcome-item">
+                <span class="outcome-num">03</span>
+                <span class="outcome-label">Concrete governance mechanisms for embedding adaptive capacity into institutional decision-making</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AUDIENCE -->
+
+<section class="section-white">
+    <div class="container">
+        <div class="grid-2">
+            <div>
+                <span class="s-subtitle">Who This Is For</span>
+                <h2 class="s-title">Built for Decision-Makers, Not Spectators</h2>
+                <p style="margin-bottom:20px;">This program is designed for leaders who carry institutional responsibility and need foresight to be operational, not decorative. Past cohorts have included board chairs, deputy ministers, managing directors, and heads of strategy for organizations spanning public, private, and multilateral sectors.</p>
+                <p>It is not a survey course. Participants should be prepared to interrogate their own strategic assumptions and leave with commitments to concrete changes in how their organizations engage with the future.</p>
+            </div>
+            <div>
+                <h3 style="margin-bottom:20px;">Typical Participant Profiles</h3>
+                <div>
+                    <span class="audience-tag">C-Suite Executives</span>
+                    <span class="audience-tag">Board Members</span>
+                    <span class="audience-tag">Heads of Strategy</span>
+                    <span class="audience-tag">Senior Policy Officials</span>
+                    <span class="audience-tag">Managing Directors</span>
+                    <span class="audience-tag">Innovation Leads</span>
+                    <span class="audience-tag">Multilateral Program Directors</span>
+                    <span class="audience-tag">Foundation &amp; Impact Leaders</span>
+                </div>
+                <div style="background:var(--light); padding:24px; border-radius:6px; margin-top:24px;">
+                    <p style="font-size:0.9rem; color:var(--text);"><strong>Delivery options:</strong> Available as a standalone intensive (1&ndash;3 days), a multi-week executive seminar, or a custom module integrated into existing leadership development programs. All formats can be delivered in-person or remote.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INSTRUCTOR -->
+
+<section>
+    <div class="container">
+        <span class="s-subtitle">Lead Instructor</span>
+        <h2 class="s-title">Peter Johnson</h2>
+        <div class="instructor-block">
+            <div class="instructor-avatar">PJ</div>
+            <div>
+                <p style="margin-bottom:16px; font-size:1.05rem;">Peter Johnson is a strategic foresight consultant, researcher, and educator whose career has spanned U.S. diplomacy, multilateral development, and frontier technology governance across 34+ countries.</p>
+
+```
+            <p style="margin-bottom:16px;">He serves as AI Expert for the EU Global Technical Assistance Facility and holds a Finance Fellowship with Scale AI&rsquo;s Human Frontier Collective. His doctoral research at the University of the Basque Country examines how cooperative governance structures compare to emerging DAO models, with a forthcoming Springer Nature chapter on organizational money.</p>
+
+            <p>Peter teaches executive education at Humboldt University Berlin and has delivered leadership programs for the European Commission, UNDP, YPO, and the BMW Foundation. He is a Professional Member of the Association of Professional Futurists and serves on the Bretton Woods Committee AI Policy Working Group.</p>
+        </div>
+    </div>
+</div>
+```
+
+</section>
+
+<!-- ENROLLMENT -->
+
+<section id="enroll" class="section-white">
+    <div class="container" style="max-width:700px;">
+        <h2 class="s-title" style="text-align:center;">Request Enrollment</h2>
+        <p style="text-align:center; margin-bottom:35px; color:var(--text);">Describe your organization and objectives. We will respond with a tailored proposal within five business days.</p>
+        <form action="https://formspree.io/f/meerbvzp" method="POST">
+            <input type="hidden" name="_subject" value="Foresight Course Inquiry">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <input type="text" name="organization" placeholder="Organization &amp; Role">
+            <select name="format" required>
+                <option value="">Preferred Format</option>
+                <option value="Intensive">1&ndash;3 Day Intensive Workshop</option>
+                <option value="Seminar">Multi-Week Executive Seminar</option>
+                <option value="Custom">Custom Module (integrated into existing program)</option>
+                <option value="Keynote">Keynote or Conference Session</option>
+            </select>
+            <textarea name="message" placeholder="Tell us about your objectives, cohort size, and any specific challenges you want the program to address." style="min-height:140px;"></textarea>
+            <button type="submit" class="btn" style="width:100%;">Submit Inquiry</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p style="margin-bottom:8px;"><a href="index.html" style="color:#888; font-weight:600;">Home</a> &nbsp;&middot;&nbsp; <a href="index.html#programs" style="color:#888; font-weight:600;">All Programs</a> &nbsp;&middot;&nbsp; <a href="index.html#contact" style="color:#888; font-weight:600;">Contact</a></p>
+    <p>&copy; 2026 Peter Johnson | Ayadee Foundation</p>
+</footer>
+
+<script>
+    document.getElementById('menuToggle').addEventListener('click', function() {
+        document.getElementById('navLinks').classList.toggle('open');
+    });
+</script>
+
+</body>
+</html>
