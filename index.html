@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peter Johnson | Ayadee Foundation — Strategic Foresight, Education & Advisory</title>
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C4A97D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpolygon points='16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76'%3E%3C/polygon%3E%3C/svg%3E">
+
+  <meta name="description" content="Strategic foresight, executive education, and high-stakes advisory at the intersection of AI governance and institutional change." />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  
+  <style>
+    :root {
+      --primary: #C4A97D;
+      --dark: #111827;
+      --text: #374151;
+      --light: #F8F9FB;
+      --white: #FFFFFF;
+      --body-size: 1.05rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; height: 100%; }
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      font-size: var(--body-size);
+      line-height: 1.7;
+      overflow-x: hidden;
+      min-height: 100%;
+    }
+
+    /* Fixed bold text size to match surrounding font size exactly */
+    strong, b { font-weight: 700; font-size: inherit; line-height: inherit; }
+    a { color: var(--primary); text-decoration: none; transition: 0.3s; }
+    a:hover { opacity: 0.8; }
+
+    /* NAVIGATION */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 70px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #E5E7EB;
+      z-index: 2000;
+    }
+
+    .nav-logo { 
+      font-family: 'Playfair Display', serif; 
+      font-weight: 700; 
+      font-size: 1.05rem; 
+      display: flex; 
+      align-items: center; 
+      color: var(--dark);
+    }
+
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-links a { color: var(--text); font-size: 0.9rem; font-weight: 600; }
+
+    .menu-toggle { display: none; cursor: pointer; flex-direction: column; gap: 5px; z-index: 2001; }
+    .menu-toggle span { width: 25px; height: 2px; background: var(--dark); transition: 0.3s; }
+
+    @media (max-width: 950px) {
+      .nav { padding: 0 20px; }
+      .menu-toggle { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 85%; height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+      }
+      .nav-links.active { right: 0; }
+      .nav-links a { font-size: 1.4rem; padding: 15px 0; }
+    }
+
+    /* BUTTONS */
+    .btn {
+      padding: 14px 28px;
+      font-weight: 700;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      font-size: 1rem;
+      border: none;
+    }
+    .btn-primary { background: var(--primary); color: var(--dark) !important; }
+    .btn-outline { border: 2px solid var(--primary); color: var(--dark); }
+
+    /* SECTIONS */
+    .s { padding: 100px 24px; scroll-margin-top: 75px; }
+    .s-white { background: var(--white); }
+    .section-narrow { max-width: 1000px; margin: 0 auto; }
+
+    .s-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .s-subtitle { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 10px; display: block; }
+
+    /* HERO */
+    .hero {
+      min-height: 85vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      padding: 120px 20px 60px;
+      background: var(--white);
+    }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.1; margin-bottom: 20px; max-width: 950px; }
+    .hero-sub { font-size: 1.15rem; color: var(--text); max-width: 700px; margin-bottom: 35px; }
+
+    /* LOGO BAR */
+    .logos { padding: 40px 20px; background: white; border-top: 1px solid #EEE; text-align: center; }
+    .logos-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; opacity: 0.6; filter: grayscale(100%); margin-top: 20px; }
+    .logo-item { font-weight: 700; font-size: 0.8rem; letter-spacing: 1px; }
+
+    /* GRID & CARDS */
+    .grid-2 { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: start; }
+    .card { border: 1px solid #E5E7EB; border-radius: 6px; padding: 25px; background: var(--white); margin-bottom: 20px; transition: 0.3s; }
+    .card:hover { border-color: var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+    .card-header { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; display: block; }
+    .card-header a { color: var(--dark); }
+
+    ul { list-style: none; }
+    li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+    li::before { content: "•"; color: var(--primary); position: absolute; left: 0; font-weight: 800; }
+
+    /* FORMS */
+    form input, form select, form textarea {
+        width: 100%;
+        padding: 16px;
+        border: 1px solid #DDD;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-family: inherit;
+        background-color: white; /* consistent background */
+        -webkit-appearance: none; /* remove default mobile styling thick borders */
+        appearance: none;
+    }
+
+    form textarea {
+        min-height: 140px; /* enforcement */
+        background-color: white; /* ensure correct color */
+        resize: vertical; /* standard behavior */
+        grid-column: span 2; /* Full width inside form row if grid-1fr collapses */
+    }
+
+    /* FORM GRID FIXES */
+    .form-wrapper { text-align: left; } /* To align inputs left */
+
+    .form-fields-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 20px; /* Space before subject */
+    }
+
+    /* Collapse the form grid on mobile */
+    @media (max-width: 768px) {
+        .form-fields-grid {
+            grid-template-columns: 1fr;
+            gap: 16px; /* spacing between fields */
+        }
+        form textarea {
+            grid-column: span 1; /* stack */
+        }
+    }
+
+    @media (max-width: 768px) {
+      .s { padding: 60px 20px; }
+      .grid-2 { grid-template-columns: 1fr; gap: 30px; }
+      .hero { min-height: auto; padding-top: 140px; padding-bottom: 80px; }
+      .hero div { flex-direction: column; width: 100%; gap: 15px !important; }
+      .btn { width: 100%; }
+    }
+
+    .footer { text-align: center; padding: 40px 20px; border-top: 1px solid #EEE; background: var(--white); font-size: 0.9rem; color: #6B7280; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4A97D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+    </svg>
+    Peter Johnson | Ayadee Foundation
+  </div>
+  
+  <div class="menu-toggle" id="mobile-menu">
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="nav-links" id="nav-list">
+    <a href="#about">About</a>
+    <a href="#ecosystem">Ecosystem</a>
+    <a href="#capital">Capital</a>
+    <a href="#programs">Programs</a>
+    <a href="#speaking">Speaking</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <span class="s-subtitle">Strategic Foresight • AI Governance • DAO Research</span>
+  <h1>Education & Advisory for Institutional Change</h1>
+  <p class="hero-sub">Bridging ML research, cooperative governance, and global policy to help leaders navigate systemic transformation.</p>
+  <div style="display:flex; gap:16px; justify-content:center;">
+    <a href="#contact" class="btn btn-primary">Request Advisory</a>
+    <a href="#programs" class="btn btn-outline">View Programs</a>
+  </div>
+</section>
+
+<div class="logos">
+  <div class="logos-grid">
+    <div class="logo-item">EUROPEAN COMMISSION</div>
+    <div class="logo-item">SCALE AI</div>
+    <div class="logo-item">USAID</div>
+    <div class="logo-item">UNDP</div>
+    <div class="logo-item">BMW FOUNDATION</div>
+    <div class="logo-item">YPO</div>
+  </div>
+</div>
+
+<section class="s s-white" id="about">
+  <div class="container grid-2">
+    <div>
+      <span class="s-subtitle">The Perspective</span>
+      <h2 class="s-title">Bridging Research & Global Strategy</h2>
+      <p style="margin-bottom:20px;">As a <b>Finance Fellow with Scale AI</b>, I work with ML research teams on how frontier models understand financial systems. This practical work informs my PhD research on <b>DAOs</b> and cooperative governance at the University of the Basque Country.</p>
+      <p style="margin-bottom:20px;">A former <b>U.S. Foreign Service Officer</b>, I led global coalitions and development programs. Through the <b>Ayadee Foundation</b>, I lead a team designing strategies for emerging technologies for multilateral organizations like the <b>FAO, UNDP, and the European Commission</b>.</p>
+      <a href="#contact" class="btn btn-outline">Work With Us</a>
+    </div>
+    <div style="background:#F3F4F6; padding:25px; border-radius:8px; border: 1px solid #E5E7EB;">
+      <h4 style="font-family:'Playfair Display', serif; margin-bottom:15px;">Academic & Institutional</h4>
+      <ul>
+        <li>Johns Hopkins SAIS (MA)</li>
+        <li>SUNY Geneseo (BA)</li>
+        <li>YPO Social Impact Exec Committee</li>
+        <li>Bretton Woods Committee</li>
+        <li>Lifeboat Foundation Advisor</li>
+      </ul>
+      <a href="https://linkedin.com/in/peterjohnson" target="_blank" style="display:block; margin-top:20px; font-weight:700; color:var(--primary);">Connect on LinkedIn →</a>
+    </div>
+  </div>
+</section>
+
+<section id="ecosystem">
+    <div class="container">
+        <span class="s-subtitle">Global Network</span>
+        <h2 class="s-title">Institutional Engagements</h2>
+        <p style="max-width:800px; margin-bottom: 25px;">Ayadee and Blue Shift Labs deliver foresight and advisory through a multidisciplinary collective. Our experts have designed programs and delivered strategic outcomes for:</p>
+        
+        <div class="ecosystem-list">
+            <div class="eco-item">United Nations Development Program (UNDP)</div>
+            <div class="eco-item">African Development Bank</div>
+            <div class="eco-item">European Union Climate Facility</div>
+            <div class="eco-item">GIZ Blockchain Lab</div>
+            <div class="eco-item">Humboldt University zu Berlin</div>
+            <div class="eco-item">Mediterranean School of Business</div>
+            <div class="eco-item">BMW Foundation Herbert Quandt</div>
+            <div class="eco-item">Heinrich Böll Stiftung</div>
+            <div class="eco-item">GOPA / DAI / Stantec</div>
+            <div class="eco-item">University of Nairobi</div>
+            <div class="eco-item">EU Missions: Honduras & Belize</div>
+            <div class="eco-item">Monica Herrera School of Comm.</div>
+        </div>
+    </div>
+</section>
+
+<section class="s" id="capital" style="background: #111827; color: #FFFFFF;">
+  <div class="section-narrow">
+    <span class="s-subtitle" style="color: #C4A97D;">Ayadee Holdings</span>
+    <h2 class="s-title" style="color: #FFFFFF;">Strategic Capital & Investment Advisory</h2>
+    <div class="grid-2" style="margin-top: 30px;">
+      <div>
+        <p style="margin-bottom: 20px; opacity: 0.9;">Through <strong>Ayadee Holdings</strong>, we translate strategic foresight into action. We maintain a concentrated portfolio of direct investments at the intersection of frontier technology, institutional infrastructure, and systemic change.</p>
+        <p style="opacity: 0.9;">We prioritize <strong>"Venture Architecture"</strong>—backing projects where specialized expertise in AI Governance and DAO Research provides a clear competitive advantage and a de-risked path to scale.</p>
+      </div>
+      <div style="background: rgba(196, 169, 125, 0.1); border: 1px solid #C4A97D; padding: 25px; border-radius: 6px;">
+        <h4 style="font-family: 'Playfair Display', serif; color: #C4A97D; margin-bottom: 15px;">Allocation Strategy</h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; opacity: 0.9;">We provide bespoke due diligence and allocation strategy for family offices and institutional funds looking to navigate high-complexity frontier markets where technical foresight is a prerequisite for alpha.</p>
+        <a href="#contact" style="display: inline-block; margin-top: 15px; font-weight: 700; color: #C4A97D;">Inquire About Advisory →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s s-white" id="programs">
+  <div class="section-narrow">
+    <span class="s-subtitle">Executive Education</span>
+    <h2 class="s-title">Institutional Capacity & Leadership</h2>
+    <div class="card"><span class="card-header"><a href="foresight.html">Strategic Foresight for the Digital Age →</a></span><p>Equipping leaders with horizon scanning and scenario development tools to build resilient strategy.</p></div>
+    <div class="card"><span class="card-header"><a href="ai-gov.html">AI Governance for Global Institutions →</a></span><p>Practitioner-built framework for risk classification, governance architecture, and implementation.</p></div>
+    <div class="card"><span class="card-header"><a href="daos.html">DAOs & Cooperative Governance →</a></span><p>How decentralized coordination and 180 years of cooperative history inform organizational design.</p></div>
+    <div class="card"><span class="card-header"><a href="creativity.html">Entrepreneurial Culture: Play & Creativity →</a></span><p>Cultivating human original thought and reflective thinking in an AI-saturated environment.</p></div>
+    <div class="card"><span class="card-header"><a href="social-ent.html">Social Entrepreneurship & Innovation →</a></span><p>Designing ventures for systemic change, combining business model innovation with sustainable development goals. (Lead Instructors: Johnson & Mack)</p></div>
+    <div style="text-align:center; margin-top:30px;"><a href="#contact" class="btn btn-primary">Inquire About Enrollment</a></div>
+  </div>
+</section>
+
+<section class="s" id="speaking">
+  <div class="section-narrow">
+    <span class="s-subtitle">Media & Speaking</span>
+    <h2 class="s-title">Keynotes, Podcasts, & Commentary</h2>
+    <div class="grid-2" style="align-items: center;">
+      <ul>
+        <li>Why Governance is the Bottleneck of AI ROI</li>
+        <li>Lessons from Mondragon for Blockchain DAOs</li>
+        <li>Navigating Uncertainty in Multilateral Policy</li>
+      </ul>
+      <div style="border-left: 3px solid var(--primary); padding:20px; background:#F9FAFB; border-radius:4px;"><p><i>"Peter bridges the gap between frontier AI development and the practical realities of global governance."</i></p></div>
+    </div>
+    <div style="text-align:center; margin-top:40px;"><a href="#contact" class="btn btn-primary">Invite as Guest / Speaker</a></div>
+  </div>
+</section>
+
+<section class="s s-white" id="contact">
+    <div class="section-narrow" style="max-width:700px;">
+        <div style="text-align:center;">
+            <h2 class="s-title">Start the Conversation</h2>
+            <p style="margin-bottom: 40px;">Available for advisory mandates, research collaboration, and speaking engagements.</p>
+        </div>
+        <form action="https://formspree.io/f/meerbvzp" method="POST">
+            <div class="form-fields-grid">
+                <input type="text" name="name" placeholder="Name" required />
+                <input type="email" name="email" placeholder="Email" required />
+            </div>
+            <input type="text" name="subject" placeholder="Subject" required />
+            <select name="type" required>
+                <option value="">Inquiry Type</option>
+                <option value="Advisory">Strategic Advisory / Governance</option>
+                <option value="Investment">Strategic Capital / Investment Advisory</option>
+                <option value="Speaking">Speaking / Media Appearance</option>
+                <option value="Education">Executive Education / Enrollment</option>
+            </select>
+            <textarea name="message" placeholder="How can I help you?" required></textarea>
+            <button type="submit" class="btn btn-primary" style="align-self:center; min-width:200px;">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<footer class="footer"><p>© 2026 Peter Johnson | Ayadee Foundation</p></footer>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu');
+  const navList = document.getElementById('nav-list');
+  menuBtn.addEventListener('click', () => { navList.classList.toggle('active'); });
+  document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { navList.classList.remove('active'); }); });
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      if(this.getAttribute('href').startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) { window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' }); }
+      }
+    });
+  });
+</script>
+</body>
+</html>
