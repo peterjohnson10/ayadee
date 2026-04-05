@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayadee Foundation | Strategic Foresight, Education & Advisory</title>
+    <title>Ayadee Foundation — Strategic Foresight, Education & Advisory</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --gold: #C4A97D;
@@ -13,19 +16,19 @@
             --white: #FFFFFF;
         }
 
-        /* Essential Reset */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
         
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            font-family: 'Source Sans 3', sans-serif; 
             background: var(--light); 
             color: var(--dark); 
             line-height: 1.7;
             margin: 0;
-            display: block !important;
+            overflow-x: hidden;
         }
         
-        strong, b { font-weight: 700; font-size: inherit; }
+        strong, b { font-weight: 700; }
         a { color: var(--gold); text-decoration: none; transition: 0.3s; }
         a:hover { opacity: 0.8; }
 
@@ -40,303 +43,35 @@
             border-bottom: 1px solid #E5E7EB;
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
         }
-        .logo { font-weight: 800; font-size: 1.1rem; color: var(--dark); letter-spacing: 0.5px; text-transform: uppercase; display: flex; align-items: center; }
-        .logo-icon { margin-right: 10px; font-size: 1.3rem; }
+        .logo { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 0.95rem; color: var(--dark); display: flex; align-items: center; text-transform: uppercase; letter-spacing: 1px; }
+        .logo-icon { width: 18px; height: 18px; border: 2px solid var(--gold); border-radius: 50%; margin-right: 12px; position: relative; }
+        .logo-icon::after { content: ''; position: absolute; top: 3px; left: 7px; width: 2px; height: 7px; background: var(--gold); transform: rotate(45deg); }
 
         .nav-links { display: flex; gap: 20px; }
-        .nav-links a { font-size: 0.85rem; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.5px; }
+        .nav-links a { font-size: 0.8rem; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.5px; }
 
-        @media (max-width: 950px) {
-            .nav-links { display: none; }
-            nav { padding: 0 20px; }
-        }
+        .menu-toggle { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .menu-toggle div { width: 25px; height: 2px; background: var(--dark); }
 
         /* SECTIONS */
-        section { padding: 100px 24px; scroll-margin-top: 80px; } /*
+        section { padding: 100px 24px; scroll-margin-top: 80px; }
         .section-white { background: white; }
-        .container { max-width: 1000px; margin: 0 auto; }
+        .container { max-width: 1000px; margin: 0 auto; width: 100%; }
         
-        .s-subtitle { color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.8rem; margin-bottom: 12px; display: block; }
-        .s-title { font-size: clamp(1.8rem, 5vw, 2.6rem); margin-bottom: 25px; line-height: 1.2; font-weight: 800; }
+        .s-subtitle { color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; margin-bottom: 10px; display: block; }
+        .s-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 2.6rem); margin-bottom: 25px; line-height: 1.2; font-weight: 800; }
 
         /* HERO */
         .hero { padding: 160px 24px 100px; text-align: center; background: white; border-bottom: 1px solid #EEE; }
-        .hero h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); margin-bottom: 20px; font-weight: 800; max-width: 950px; margin-left: auto; margin-right: auto; }
-        .hero-sub { font-size: 1.2rem; color: var(--text); max-width: 750px; margin: 0 auto 40px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 6vw, 3.6rem); margin-bottom: 20px; font-weight: 800; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .hero-sub { font-size: 1.15rem; color: var(--text); max-width: 750px; margin: 0 auto 40px; }
 
-        .btn { padding: 16px 32px; background: var(--gold); color: white !important; font-weight: 700; border-radius: 4px; display: inline-block; border: none; font-size: 1rem; cursor: pointer; text-align: center; }
+        .btn { padding: 16px 32px; background: var(--gold); color: white !important; font-weight: 700; border-radius: 4px; display: inline-block; border: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; }
 
         .grid-2 { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; }
         .card { background: white; padding: 30px; margin-bottom: 20px; border-radius: 6px; border: 1px solid #E5E7EB; }
-        .card h3 { margin-bottom: 12px; font-size: 1.25rem; font-weight: 800; }
-
-        ul { list-style: none; }
-        li { position: relative; padding-left: 25px; margin-bottom: 12px; }
-        li::before { content: "•"; color: var(--gold); position: absolute; left: 0; font-weight: 900; }
-
-        /* CONTACT FORM STYLES */
-        .contact-wrap { background: white; padding: 40px; border-radius: 8px; border: 1px solid #E5E7EB; max-width: 700px; margin: 0 auto; }
-        form input, form select, form textarea { width: 100%; padding: 14px; margin-bottom: 20px; border: 1px solid #DDD; border-radius: 4px; font-size: 1rem; font-family: inherit; }
-
-        @media (max-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr; }
-            section { padding: 70px 24px; }
-            .btn { width: 100%; }
-        }
-
-        footer { text-align: center; padding: 60px 24px; border-top: 1px solid #EEE; color: #888; background: white; font-size: 0.9rem; }
-    </style>
-</head>
-<body>
-
-<nav>
-    <div class="logo"><span class="logo-icon">🧭</span> Ayadee Foundation</div>
-    <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#capital">Capital</a>
-        <a href="#programs">Programs</a>
-        <a href="#fellowship">Fellowship</a>
-        <a href="#speaking">Speaking</a>
-        <a href="#contact">Contact</a>
-    </div>
-</nav>
-
-<section class="hero">
-    <div class="container">
-        <span class="s-subtitle">Strategic Foresight • AI Governance • DAO Research</span>
-        <h1>Education & Advisory for Institutional Change</h1>
-        <p class="hero-sub">Bridging Machine Learning research, cooperative governance models, and global policy to help leaders navigate systemic transformation.</p>
-        <div style="display:flex; gap:16px; justify-content:center; flex-wrap: wrap;">
-            <a href="#contact" class="btn">Request Advisory</a>
-            <a href="#programs" class="btn" style="background:white; border:2px solid var(--gold); color:var(--dark) !important;">View Programs</a>
-        </div>
-    </div>
-</section>
-
-<div style="padding: 40px 20px; background: white; border-top: 1px solid #EEE; text-align: center;">
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; opacity: 0.6; font-weight: 700; font-size: 0.8rem; letter-spacing: 1px;">
-        <div>EUROPEAN COMMISSION</div>
-        <div>SCALE AI</div>
-        <div>USAID</div>
-        <div>UNDP</div>
-        <div>BMW FOUNDATION</div>
-        <div>YPO</div>
-    </div>
-</div>
-
-<section id="about" class="section-white">
-    <div class="container grid-2">
-        <div>
-            <span class="s-subtitle">The Perspective</span>
-            <h2 class="s-title">Strategic Foresight, Leadership &amp; Institutional Governance</h2>
-            <p style="margin-bottom:20px;"><strong>The Ayadee Foundation works at the intersection of strategic foresight, leadership development, and institutional governance.</strong> Our programs equip senior leaders and organizations to navigate systemic change driven by frontier technology, shifting geopolitical conditions, and the emergence of new organizational forms.</p>
-            <p>Our initiatives are led by <strong>Peter Johnson</strong>, a strategic foresight consultant, educator, and former <strong>U.S. Foreign Service Officer</strong> who has advised multilateral organizations including the <strong>European Commission, UNDP, and FAO</strong> across 34+ countries. Johnson teaches executive education at Humboldt University Berlin, serves as AI Expert for the EU Global Technical Assistance Facility, and holds a Finance Fellowship with Scale AI&rsquo;s Human Frontier Collective. His doctoral research at the University of the Basque Country examines how cooperative and decentralized governance structures shape institutional resilience.</p>
-        </div>
-        <div style="background:var(--light); padding:35px; border-radius:8px;">
-            <h3 style="margin-bottom:20px;">Institutional Background</h3>
-            <ul>
-                <li>Johns Hopkins SAIS (MA)</li>
-                <li>YPO Social Impact Exec Committee</li>
-                <li>Bretton Woods Committee</li>
-                <li>Lifeboat Foundation Advisor</li>
-            </ul>
-            <a href="https://linkedin.com/in/peterjohnson" target="_blank" rel="noopener noreferrer" style="font-weight:700; margin-top:15px; display:inline-block;">Connect on LinkedIn &rarr;</a>
-        </div>
-    </div>
-</section>
-
-        <div style="background:var(--light); padding:35px; border-radius:8px;">
-            <h3 style="margin-bottom:20px;">Foundation Expertise</h3>
-            <ul>
-                <li>Strategic Foresight & Signal Detection</li>
-                <li>AI Governance Architecture</li>
-                <li>FinTech Policy & Digital Identity</li>
-                <li>DAO & Cooperative Research</li>
-            </ul>
-            <a href="https://linkedin.com/in/peterjohnson" target="_blank" style="font-weight:700; margin-top:15px; display:inline-block;">Foundation Leadership Profile →</a>
-        </div>
-    </div>
-</section>
-
-<section id="capital" style="background: var(--dark); color: white;">
-    <div class="container">
-        <span class="s-subtitle" style="color:var(--gold);">Ayadee Holdings</span>
-        <h2 class="s-title" style="color:white;">Strategic Capital & Investment Advisory</h2>
-        <div class="grid-2">
-            <div>
-                <p style="margin-bottom: 20px; opacity: 0.9;">Through <strong>Ayadee Holdings</strong>, we translate strategic foresight into action. We maintain a concentrated portfolio of direct investments at the intersection of frontier technology and institutional infrastructure.</p>
-                <p style="opacity: 0.9;">We prioritize <strong>"Venture Architecture"</strong>—backing projects where our technical expertise provides a clear competitive advantage and a de-risked path to scale.</p>
-            </div>
-            <div style="border: 1px solid var(--gold); padding:30px; border-radius:8px; background:rgba(196,169,125,0.1);">
-                <h4 style="color:var(--gold); margin-bottom:12px;">Investment Advisory</h4>
-                <p style="font-size:0.95rem; opacity:0.9;">We provide bespoke due diligence and allocation strategy for family offices and institutional funds navigating high-complexity frontier markets where technical foresight is a prerequisite for alpha.</p>
-                <a href="#contact" style="color:var(--gold); font-weight:700; display:block; margin-top:15px;">Inquire About Advisory →</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="programs" class="section-white">
-    <div class="container">
-        <span class="s-subtitle">Executive Education</span>
-        <h2 class="s-title">Institutional Capacity & Leadership</h2>
-        <div class="card"><h3><a href="foresight.html">Strategic Foresight for the Digital Age →</a></h3><p>Equipping leaders with horizon scanning and scenario development tools for resilient strategy.</p></div>
-        <div class="card"><h3><a href="ai-gov.html">AI Governance for Global Institutions →</a></h3><p>Practitioner-built framework for risk classification, governance architecture, and implementation.</p></div>
-        <div class="card"><h3><a href="daos.html">DAOs & Cooperative Governance →</a></h3><p>How decentralized coordination and 180 years of cooperative history inform the next generation of design.</p></div>
-        <div class="card"><h3><a href="creativity.html">Entrepreneurial Culture: Play & Creativity →</a></h3><p>Cultivating human original thought and reflective thinking in an AI-saturated environment.</p></div>
-        <div class="card"><h3><a href="social-ent.html">Social Entrepreneurship & Innovation →</a></h3><p>Designing ventures for systemic change. (Lead Instructors: Peter Johnson & Andrew Mack)</p></div>
-        <div style="text-align:center; margin-top:30px;"><a href="#contact" class="btn">Inquire About Enrollment</a></div>
-    </div>
-</section>
-
-<section id="fellowship">
-    <div class="container">
-        <span class="s-subtitle">Knowledge Production</span>
-        <h2 class="s-title">Architects of the Future Fellowship</h2>
-        <p style="margin-bottom:40px; font-size:1.1rem;">A selective program for emerging leaders working at the intersection of technology, governance, and global impact. The fellowship emphasizes <strong>knowledge production, applied research, and think tank–style contributions</strong>.</p>
+        .card h3 { font-family: 'Playfair Display', serif; margin-bottom: 12px; font-size: 1.3rem; }
         
-        <div class="grid-2">
-            <div class="card">
-                <h3>Program Structure</h3>
-                <p>6-month, part-time fellowship (8–12 hours/week), remote-first. Fellows contribute directly to research, program development, and <b>real-world advisory projects in AI governance</b>.</p>
-            </div>
-            <div class="card">
-                <h3>Who Should Apply</h3>
-                <p>Candidates demonstrating strong analytical capability and a background in policy, entrepreneurship, or international development. We seek those committed to using technology for global impact.</p>
-            </div>
-        </div>
-
-        <div class="card" style="margin-top:20px;">
-            <h3>Applied Research Focus</h3>
-            <div class="grid-2">
-                <ul>
-                    <li><strong>AI Governance:</strong> Policy frameworks and risk mitigation for frontier models.</li>
-                    <li><strong>Strategic Foresight:</strong> Building scenario models for digital ecosystems.</li>
-                </ul>
-                <ul>
-                    <li><strong>Digital Economy:</strong> Researching fintech policy and digital identity systems.</li>
-                    <li><strong>Institutional Design:</strong> Investigating how DAOs enable participatory oversight.</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div style="text-align:center; margin-top:40px;">
-            <a href="https://docs.google.com/forms/d/1yZqbRmObBTzX5wBc8BQKO8omUsdWykN5yPQSPbZjj0g/edit" target="_blank" class="btn">Apply for Fellowship</a>
-        </div>
-    </div>
-</section>
-
-<section id="speaking" class="section-white">
-    <div class="container">
-        <span class="s-subtitle">Media & Speaking</span>
-        <h2 class="s-title">Keynotes, Podcasts & Commentary</h2>
-        <div class="grid-2">
-            <div>
-                <p style="margin-bottom:20px;">The Foundation provides expert commentary and keynotes on high-stakes technological change and global governance.</p>
-                <ul>
-                    <li>Why Governance is the Bottleneck of AI ROI</li>
-                    <li>Lessons from Mondragon for Blockchain DAOs</li>
-                    <li>Navigating Uncertainty in Multilateral Policy</li>
-                    <li>Democratic Participation in Algorithmic Systems</li>
-                </ul>
-            </div>
-            <div style="border-left: 3px solid var(--gold); padding:20px; background:var(--light); border-radius:4px;">
-                <p><i>"The Foundation bridges the gap between frontier AI development and the practical realities of global governance."</i></p>
-            </div>
-        </div>
-        <div style="text-align:center; margin-top:40px;"><a href="#contact" class="btn">Invite as Guest / Speaker</a></div>
-    </div>
-</section>
-
-<section id="contact">
-    <div class="container">
-        <div style="text-align:center; margin-bottom:40px;">
-            <span class="s-subtitle">Engagement</span>
-            <h2 class="s-title">Start the Conversation</h2>
-            <p>Available for advisory mandates, research collaboration, and speaking engagements.</p>
-        </div>
-        
-        <div class="contact-wrap">
-            <form action="https://formspree.io/f/meerbvzp" method="POST">
-                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
-                    <input type="text" name="name" placeholder="Name" required />
-                    <input type="email" name="email" placeholder="Email" required />
-                </div>
-                <input type="text" name="subject" placeholder="Subject" required />
-                <select name="type" required>
-                    <option value="">Inquiry Type</option>
-                    <option value="Advisory">Strategic Advisory & Governance</option>
-                    <option value="Investment">Strategic Capital & Portfolio Inquiries</option>
-                    <option value="Education">Executive Education & Institutional Training</option>
-                    <option value="Fellowship">Fellowship Inquiries & Applied Research</option>
-                    <option value="Media">Media, Keynotes & Public Speaking</option>
-                </select>
-                <textarea name="message" placeholder="How can the Foundation assist you?" style="min-height:140px;"></textarea>
-                <button type="submit" class="btn" style="width:100%;">Send Message</button>
-            </form>
-        </div>
-    </div>
-</section>
-
-<footer>
-    <p>© 2026 Ayadee Foundation</p>
-</footer>
-
-<script>
-   
-    // 1. Handle clicks on the page (About, Programs, etc.)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId.startsWith('#')) {
-                e.preventDefault();
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
-
-    // 2. Handle incoming links from external sites (ayadee.io/#fellowship)
-    window.addEventListener('load', function() {
-        if (window.location.hash) {
-            const target = document.querySelector(window.location.hash);
-            if (target) {
-                // Short timeout ensures the page layout is stable before jumping
-                setTimeout(() => {
-                    window.scrollTo({
-                        top: target.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                }, 100);
-            }
-        }
-    });
-
-    // 3. Mobile Menu Toggle
-    const menuBtn = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    if (menuBtn) {
-        menuBtn.addEventListener('click', () => {
-            const isFlex = navLinks.style.display === 'flex';
-            navLinks.style.display = isFlex ? 'none' : 'flex';
-            if (!isFlex) {
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '70px';
-                navLinks.style.left = '0';
-                navLinks.style.width = '100%';
-                navLinks.style.background = 'white';
-                navLinks.style.padding = '20px';
-                navLinks.style.borderBottom = '1px solid #EEE';
-            }
-        });
-    }
-</script>
-
-</body>
-</html>
+        /* ECOSYSTEM (Tablet Optimization) */
+        .ecosystem-list { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 30px; }
+        .eco
