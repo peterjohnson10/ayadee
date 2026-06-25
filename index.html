@@ -279,37 +279,48 @@
 <footer><p>© 2026 Ayadee Foundation | Strategic Foresight</p></footer>
 
 <script>
-    // Smooth scroll and external hash jump logic
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId.startsWith('#')) {
-                e.preventDefault();
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) { window.scrollTo({ top: targetElement.offsetTop - 70, behavior: 'smooth' }); }
-            }
-        });
-    });
+  function scrollToSection(target) {
+    if (target) target.scrollIntoView({ behavior: "smooth" });
+  }
 
-    window.addEventListener('load', function() {
-        if (window.location.hash) {
-            const target = document.querySelector(window.location.hash);
-            if (target) { setTimeout(() => { window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' }); }, 300); }
+  // In-page anchor clicks
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      const id = this.getAttribute("href");
+      if (id.length > 1) {
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          history.pushState(null, "", id);
+          scrollToSection(target);
         }
+      }
     });
+  });
 
-    // Mobile Menu logic
-    const menuBtn = document.getElementById('mobile-btn');
-    const navLinks = document.querySelector('.nav-links');
-    if(menuBtn) {
-        menuBtn.addEventListener('click', () => {
-            const isVis = navLinks.style.display === 'flex';
-            navLinks.style.display = isVis ? 'none' : 'flex';
-            if (!isVis) {
-                Object.assign(navLinks.style, { flexDirection: 'column', position: 'absolute', top: '70px', left: '0', width: '100%', background: 'white', padding: '20px', borderBottom: '1px solid #EEE' });
-            }
-        });
-    }
+  // External arrival at ayadee.io/#fellowship
+  function jumpToHash() {
+    if (!window.location.hash) return;
+    scrollToSection(document.querySelector(window.location.hash));
+  }
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => setTimeout(jumpToHash, 50));
+  } else {
+    window.addEventListener("load", () => setTimeout(jumpToHash, 200));
+  }
+
+  // Mobile menu
+  const menuBtn = document.getElementById("mobile-btn");
+  const navLinks = document.querySelector(".nav-links");
+  if (menuBtn) {
+    menuBtn.addEventListener("click", () => {
+      const isVis = navLinks.style.display === "flex";
+      navLinks.style.display = isVis ? "none" : "flex";
+      if (!isVis) {
+        Object.assign(navLinks.style, { flexDirection: "column", position: "absolute", top: "70px", left: "0", width: "100%", background: "white", padding: "20px", borderBottom: "1px solid #EEE" });
+      }
+    });
+  }
 </script>
 </body>
 </html>
